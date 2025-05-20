@@ -96,6 +96,7 @@ public class Tender {
 
 
     @NoArgsConstructor
+    @ToString
     public static class  Descripteur {
         @Getter
         @Setter
@@ -105,17 +106,10 @@ public class Tender {
         @Setter
         @JsonProperty("LIBELLE")
         String lebelle ;
-
-        @Override
-        public String toString() {
-            return "Descripteur{" +
-                    "code='" + code + '\'' +
-                    ", lebelle='" + lebelle + '\'' +
-                    '}';
-        }
     }
 
     @NoArgsConstructor
+    @ToString
     public static class  AvisPrecedent {
         @Getter
         @Setter
@@ -145,18 +139,6 @@ public class Tender {
         @Setter
         @JsonProperty("ANNONCEREF")
         String annonceRef;
-
-        @Override
-        public String toString() {
-            return "AvisPrecedent{" +
-                    "numeroAnnonce='" + numeroAnnonce + '\'' +
-                    ", numeroParution='" + numeroParution + '\'' +
-                    ", typeParution='" + typeParution + '\'' +
-                    ", dateParution='" + dateParution + '\'' +
-                    ", annee='" + annee + '\'' +
-                    ", annonceRef='" + annonceRef + '\'' +
-                    '}';
-        }
     }
 
     //*************** Donnees Fields ****************************************
