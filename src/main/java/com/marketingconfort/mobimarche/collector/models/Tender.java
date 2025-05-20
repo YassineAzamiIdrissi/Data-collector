@@ -77,102 +77,102 @@ public class Tender {
 
 
     // données :  :: : : : : : : : : : : : : :  : : :
-    @Column(name = "legal_name")
-    private String denomination;
+    @Column(name = "data_legal_name")
+    private String donneesDenomination;
 
-    @Column(name = "siret_number")
-    private String siret;
+    @Column(name = "data_siret_number")
+    private String donneesSiret;
 
-    @Column(name = "national_id_code")
-    private String codeIdentNational;
+    @Column(name = "data_national_id_code")
+    private String donneesCodeIdentNational;
 
-    @Column(name = "contact_info")
-    private String contact;
+    @Column(name = "data_contact_info")
+    private String donneesContact;
 
-    @Column(name = "postal_code")
-    private String cp;
+    @Column(name = "data_postal_code")
+    private String donneesCp;
 
-    @Column(name = "city")
-    private String ville;
+    @Column(name = "data_city")
+    private String donneesVille;
 
-    @Column(name = "buyer_profile_url")
-    private String urlProfilAcheteur;
+    @Column(name = "data_buyer_profile_url")
+    private String DonneesUrlProfilAcheteur;
 
-    @Column(name = "full_documents_yes")
-    private String integraliteDocOui;
+    @Column(name = "data_full_documents_yes")
+    private String donneesIntegraliteDocOui;
 
-    @Column(name = "acts_on_behalf_no")
-    private String agitPourAutreCompteNon;
+    @Column(name = "data_acts_on_behalf_no")
+    private String donneesAgitPourAutreCompteNon;
 
-    @Column(name = "central_purchasing_body_no")
-    private String organismeAcheteurCentralNon;
+    @Column(name = "data_central_purchasing_body_no")
+    private String donneesOrganismeAcheteurCentralNon;
 
-    @Column(name = "contract_title")
-    private String titreMarche;
+    @Column(name = "data_contract_title")
+    private String donneesTitreMarche;
 
-    @Column(name = "contract_type")
-    private String type_Marche;
+    @Column(name = "data_contract_type")
+    private String donneesType_Marche;
 
-    @Column(name = "full_subject")
-    private String objetComplet;
+    @Column(name = "data_full_subject")
+    private String donneesObjetComplet;
 
-    @Column(name = "main_cpv")
-    private String cpvPrincipal;
+    @Column(name = "data_main_cpv")
+    private String donneesCpvPrincipal;
 
-    @Column(name = "place_of_execution")
-    private String lieuExecution;
+    @Column(name = "data_place_of_execution")
+    private String donneesLieuExecution;
 
-    @Column(name = "duration_months")
-    private String dureeMois;
+    @Column(name = "data_duration_months")
+    private String donneesDureeMois;
 
-    @Column(name = "non_phased_contract")
-    private String trancheNon;
+    @Column(name = "data_non_phased_contract")
+    private String donneesTrancheNon;
 
-    @Column(name = "reserved_contract_no")
-    private String marcheReserveNon;
+    @Column(name = "data_reserved_contract_no")
+    private String donneesMarcheReserveNon;
 
-    @Column(name = "divided_into_lots")
-    private boolean divEnLots;
+    @Column(name = "data_divided_into_lots")
+    private boolean donneesDivEnLots;
 
 
-    @Column(name = "procedure_type")
-    private String type_Procedure;
+    @Column(name = "data_procedure_type")
+    private String donneesType_Procedure;
 
-    @Column(name = "purchase_technique")
-    private String techAchat;
+    @Column(name = "data_purchase_technique")
+    private String donneesTechAchat;
 
-    @Column(name = "award_without_negotiation_yes")
-    private String attribSansNegOui;
+    @Column(name = "data_award_without_negotiation_yes")
+    private String donneesAttribSansNegOui;
 
-    @Column(name = "variants_not_allowed")
-    private String variantesNon;
+    @Column(name = "data_variants_not_allowed")
+    private String donneesVariantesNon;
 
-    @Column(name = "buyer_category")
-    private String categorieAcheteur;
+    @Column(name = "data_buyer_category")
+    private String donneesCategorieAcheteur;
 
-    @Column(name = "award_criteria")
-    private String criteresAttribution;
+    @Column(name = "data_award_criteria")
+    private String donneesCriteresAttribution;
 
-    @Column(name = "offer_reception_date")
-    private String dateReceptionOffres;
+    @Column(name = "data_offer_reception_date")
+    private String donneesDateReceptionOffres;
 
-    @Column(name = "electronic_participation_allowed")
-    private String participationElectroniqueAutorisee;
+    @Column(name = "data_electronic_participation_allowed")
+    private String donneesParticipationElectroniqueAutorisee;
 
-    @Column(name = "selection_criteria")
-    private String critereSelection;
+    @Column(name = "data_selection_criteria")
+    private String donneesCritereSelection;
 
-    @Column(name = "economic_capacity")
-    private String capaciteEco;
+    @Column(name = "data_economic_capacity")
+    private String donneesCapaciteEco;
 
-    @Column(name = "technical_capacity")
-    private String capaciteTech;
+    @Column(name = "data_technical_capacity")
+    private String donneesCapaciteTech;
 
-    @Column(name = "site_visit_no")
-    private String visiteNon;
+    @Column(name = "data_site_visit_no")
+    private String donneesVisiteNon;
 
-    @Column(name = "additional_information")
-    private String renseignementsComplementaires;
+    @Column(name = "data_additional_information")
+    private String donnesRenseignementsComplementaires;
 
     // gestion : : : : : : : : : ::: : : : : : : : :
     @Column(name = "management_r2")
