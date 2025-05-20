@@ -1,9 +1,6 @@
 package com.marketingconfort.mobimarche.collector.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +15,7 @@ public class MarketType {
     @Id
     @GeneratedValue
     private Integer id;
+    @Column(name = "marketType")
     private String typeMarche;
 
     @ManyToOne
