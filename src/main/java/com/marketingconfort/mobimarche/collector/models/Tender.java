@@ -36,7 +36,7 @@ public class Tender {
 
     @OneToMany(mappedBy = "tender")
     private List<Lot> lots;
-    
+
     @OneToMany(mappedBy = "tender")
     private List<TypeAvis> typeAvis;
 
@@ -50,7 +50,7 @@ public class Tender {
     private String etat;
 
     @Column(name = "publication_date")
-    private Date dateParution;
+    private Date avisPrecedentDateParution;
 
     @Column(name = "end_of_distribution_date")
     private Date dateFinDiffusion;
@@ -198,16 +198,19 @@ public class Tender {
     private String nomPublication;
 
     @Column(name = "announcement_ref_number")
-    private String numeroAnnonce;
+    private String avisPrecedentNumeroAnnonce;
 
     @Column(name = "issue_number")
-    private String numeroParution;
+    private String avisPrecedentNumeroParution;
 
     @Column(name = "issue_type")
-    private String typeParution;
+    private String avisPrecedentTypeParution;
 
     @Column(name = "announcement_reference")
-    private String annonceRef;
+    private String avisPrecedentAnnonceRef;
+
+    @Column(name = "prev_annonce_year")
+    private String avisPrecedentAnnee;
 
     @Column(name = "subject_summary")
     private String resumeObjet;
