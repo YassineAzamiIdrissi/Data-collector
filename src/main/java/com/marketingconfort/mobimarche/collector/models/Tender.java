@@ -12,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
+@Getter
+@Setter
 public class Tender {
 
     @Id

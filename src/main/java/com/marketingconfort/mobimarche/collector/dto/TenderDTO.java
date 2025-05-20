@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @ToString
+@Getter @Setter
 public class TenderDTO {
     @JsonProperty("idweb")
     private String idweb;
