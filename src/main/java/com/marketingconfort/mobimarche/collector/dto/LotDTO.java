@@ -1,4 +1,4 @@
-package models;
+package com.marketingconfort.mobimarche.collector.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @ToString
-public class Lot {
+public class LotDTO {
     @Getter
     @Setter
     @JsonProperty("DESCRIPTION")
@@ -19,5 +19,5 @@ public class Lot {
     @Getter
     @Setter
     @JsonProperty("VALEUR")
-    private Valeur valeur;
+    private ValeurDTO valeur;
 }

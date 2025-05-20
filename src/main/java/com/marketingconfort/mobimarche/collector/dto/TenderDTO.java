@@ -1,10 +1,9 @@
-package models;
+package com.marketingconfort.mobimarche.collector.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Getter;
-
 import lombok.ToString;
 
 import java.time.LocalDate;
@@ -12,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @ToString
-public class Tender {
+public class TenderDTO {
     @JsonProperty("idweb")
     private String idweb;
 
@@ -86,8 +85,8 @@ public class Tender {
     private String numAnnonce ;
     private LocalDate datePublication ;
     private String nomPublication;
-    private Descripteur[] descripteurs;
-    private AvisPrecedent avisPrecedent;
+    private DescripteurDTO[] descripteurs;
+    private AvisPrecedentDTO avisPrecedent;
     private String resumeObjet;
     private String typeProcedure;
     private String genre ;
@@ -119,7 +118,7 @@ public class Tender {
     private boolean divEnLots;
 
     // Liste des lots
-    private Lot[] lots;
+    private LotDTO[] lots;
 
     // === PROCEDURE ===
     private String type_Procedure;

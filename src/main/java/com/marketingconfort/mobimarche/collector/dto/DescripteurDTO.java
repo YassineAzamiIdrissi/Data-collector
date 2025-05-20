@@ -1,4 +1,4 @@
-package models;
+package com.marketingconfort.mobimarche.collector.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @ToString
-public class  Descripteur {
+public class DescripteurDTO {
     @Getter
     @Setter
     @JsonProperty("CODE")
