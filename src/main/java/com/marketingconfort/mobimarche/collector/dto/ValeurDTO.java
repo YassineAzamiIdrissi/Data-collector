@@ -1,4 +1,4 @@
-package dto;
+package com.marketingconfort.mobimarche.collector.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
