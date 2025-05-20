@@ -175,62 +175,62 @@ public class Tender {
     private String renseignementsComplementaires;
 
     // gestion : : : : : : : : : ::: : : : : : : : :
-    @Column(name = "r2")
-    private String r2;
+    @Column(name = "management_r2")
+    private String gestionR2;
 
-    @Column(name = "r3")
-    private String r3;
+    @Column(name = "management_r3")
+    private String gestionR3;
 
-    @Column(name = "r3_profession")
-    private String tetier_r3;
+    @Column(name = "management_r3_profession")
+    private String gestionTetier_r3;
 
-    @Column(name = "r4")
-    private String r4;
+    @Column(name = "management_r4")
+    private String gestionR4;
 
-    @Column(name = "r4_profession")
-    private String tetier_r4;
+    @Column(name = "management_r4_profession")
+    private String gestionTetier_r4;
 
-    @Column(name = "k1")
-    private String k1;
+    @Column(name = "management_k1")
+    private String gestionK1;
 
-    @Column(name = "k9")
-    private String k9;
+    @Column(name = "management_k9")
+    private String gestionK9;
 
-    @Column(name = "announcement_number")
-    private String numAnnonce;
+    @Column(name = "management_announcement_number")
+    private String gestionNumAnnonce;
 
-    @Column(name = "publication_date_2")
-    private LocalDate datePublication;
+    @Column(name = "management_publication_date")
+    private LocalDate gestionDatePublication;
 
-    @Column(name = "publication_name")
-    private String nomPublication;
+    @Column(name = "management_publication_name")
+    private String gestionNomPublication;
 
-    @Column(name = "prev_notice_announce_number")
-    private String avisPrecedentNumeroAnnonce;
+    @Column(name = "management_prev_notice_announce_number")
+    private String gestionAvisPrecedentNumeroAnnonce;
 
-    @Column(name = "prev_notice_publication_number")
-    private String avisPrecedentNumeroParution;
+    @Column(name = "management_prev_notice_publication_number")
+    private String gestionAvisPrecedentNumeroParution;
 
-    @Column(name = "prev_notice_publication_type")
-    private String avisPrecedentTypeParution;
+    @Column(name = "management_prev_notice_publication_type")
+    private String gestionAvisPrecedentTypeParution;
 
-    @Column(name = "prev_notice_announce_reference")
-    private String avisPrecedentAnnonceRef;
+    @Column(name = "management_prev_notice_announce_reference")
+    private String gestionAvisPrecedentAnnonceRef;
 
-    @Column(name = "prev_notice_year")
-    private String avisPrecedentAnnee;
+    @Column(name = "management_prev_notice_year")
+    private String gestionAvisPrecedentAnnee;
 
-    @Column(name = "subject_summary")
-    private String resumeObjet;
+    @Column(name = "management_subject_summary")
+    private String gestionResumeObjet;
 
-    @Column(name = "procedure_type_alias")
-    private String typeProcedure;
+    @Column(name = "management_procedure_type_alias")
+    private String gestionTypeProcedure;
 
-    @Column(name = "type")
-    private String genre;
+    @Column(name = "management_type")
+    private String gestionGenre;
 
-    @Column(name = "reminder")
-    private String rappel;
+    @Column(name = "management_reminder")
+    private String gestionRappel;
 
 
 }
