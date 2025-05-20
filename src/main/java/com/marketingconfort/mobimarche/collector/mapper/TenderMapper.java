@@ -55,12 +55,12 @@ public class TenderMapper {
         t.setTypeAvis(typeAviss);
        //-----------------------------
         AnnonceLieMapper annonceMapper = new AnnonceLieMapper();
-        List<Annonce> annonces = new ArrayList<>();
+        List<AnnonceLie> annonces = new ArrayList<>();
         List<AnnonceLieDTO> annonceDTOs = tDTO.getAnnonceLie();
         for(AnnonceLieDTO annonceDTO : annonceDTOs) {
             annonces.add(annonceMapper.toEntity(annonceDTO));
         }
-        t.setAnnonceLie(annonces);
+        t.setAnnonceLies(annonces);
         //-----------------------------
 
 

@@ -1,12 +1,12 @@
 package com.marketingconfort.mobimarche.collector.mapper;
 
 import com.marketingconfort.mobimarche.collector.dto.AnnonceLieDTO;
-import com.marketingconfort.mobimarche.collector.models.Annonce;
+import com.marketingconfort.mobimarche.collector.models.AnnonceLie;
 
 public class AnnonceLieMapper {
 
-    public Annonce toEntity(AnnonceLieDTO aDTO) {
-        Annonce a = new Annonce();
+    public AnnonceLie toEntity(AnnonceLieDTO aDTO) {
+        AnnonceLie a = new AnnonceLie();
         a.setId(aDTO.getId());
         a.setAnnonce(aDTO.getAnnonce());
         return a ;

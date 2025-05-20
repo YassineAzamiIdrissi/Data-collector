@@ -13,7 +13,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Builder
 @Data
 @Entity
-public class Annonce {
+public class AnnonceLie {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
