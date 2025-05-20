@@ -7,10 +7,10 @@ import com.marketingconfort.mobimarche.collector.models.CodeDepartement;
 
 public class AnnonceMapper {
 
-    public Annonce toEntity(AnnonceDTO cdDTO) {
-        CodeDepartement cd = new CodeDepartement();
-        cd.setId(cdDTO.getId());
-        cd.setCodeDepartement(cdDTO.getCodeDepartement());
-        return cd ;
+    public Annonce toEntity(AnnonceDTO aDTO) {
+        Annonce a = new Annonce();
+        a.setId(aDTO.getId());
+        a.setAnnonce(aDTO.getAnnonce());
+        return a ;
     }
 }

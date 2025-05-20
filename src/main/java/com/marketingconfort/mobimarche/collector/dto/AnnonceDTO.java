@@ -8,5 +8,4 @@ import lombok.Data;
 public class AnnonceDTO {
    private Integer id;
    private String annonce;
-   private Tender tender;
 }
