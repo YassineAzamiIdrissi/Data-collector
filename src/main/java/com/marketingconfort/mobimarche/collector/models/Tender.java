@@ -175,7 +175,7 @@ public class Tender {
     private String donneesVisiteNon;
 
     @Column(name = "data_additional_information")
-    private String donnesRenseignementsComplementaires;
+    private String donneesRenseignementsComplementaires;
 
     // gestion : : : : : : : : : ::: : : : : : : : :
     @Column(name = "management_r2")
