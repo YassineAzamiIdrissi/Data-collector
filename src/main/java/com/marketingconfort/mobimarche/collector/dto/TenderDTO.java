@@ -143,8 +143,4 @@ public class TenderDTO {
     private String visiteNon;
     private String renseignementsComplementaires;
 
-
-
-
-
 }
