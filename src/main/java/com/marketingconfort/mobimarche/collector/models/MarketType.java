@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @Entity
-public class TypeMarche {
+public class MarketType {
     @Id
     @GeneratedValue
     private Integer id;
