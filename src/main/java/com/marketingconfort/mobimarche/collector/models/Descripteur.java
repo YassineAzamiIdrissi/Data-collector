@@ -6,17 +6,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
 @Entity
-public class MarketType {
+public class Descripteur {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "marketType")
-    private String typeMarche;
+    private String code;
+    @Column(name = "label")
+    private String lebelle;
 
     @ManyToOne
     private Tender tender;

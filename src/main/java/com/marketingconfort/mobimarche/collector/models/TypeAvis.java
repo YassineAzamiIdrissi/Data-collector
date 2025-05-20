@@ -5,18 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Columns;
 
-
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Data
-@Entity
-public class Descriptor {
+@Builder
+public class TypeAvis {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String code;
-    @Column(name = "label")
-    private String lebelle;
+    @Column(name = "noticeType")
+    private String typeAvis;
+
+    @ManyToOne
+    private Tender tender;
 }
