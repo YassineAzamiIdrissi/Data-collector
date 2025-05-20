@@ -66,9 +66,6 @@ public class TenderDTO {
     @JsonProperty("gestion")
     private JsonNode gestion;
 
-
-
-
     @JsonProperty("donnees")
     private JsonNode donnees;
 

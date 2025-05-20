@@ -1,9 +1,6 @@
 package com.marketingconfort.mobimarche.collector.mapper.models;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.marketingconfort.mobimarche.collector.dto.AvisPrecedentDTO;
-import com.marketingconfort.mobimarche.collector.dto.DescripteurDTO;
-import com.marketingconfort.mobimarche.collector.dto.LotDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
