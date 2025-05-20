@@ -25,5 +25,6 @@ public class Lot {
     private List<Valeur> valeur;
 
     @ManyToOne
+    @JoinColumn(name = "tender_id")
     private Tender tender;
 }

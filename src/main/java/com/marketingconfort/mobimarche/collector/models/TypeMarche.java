@@ -19,5 +19,6 @@ public class TypeMarche {
     private String typeMarche;
 
     @ManyToOne
+    @JoinColumn(name = "tender_id")
     private Tender tender;
 }

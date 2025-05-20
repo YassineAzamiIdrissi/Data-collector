@@ -21,5 +21,6 @@ public class Annonce {
     private String annonce;
 
     @ManyToOne
+    @JoinColumn(name = "tender_id")
     private Tender tender;
 }

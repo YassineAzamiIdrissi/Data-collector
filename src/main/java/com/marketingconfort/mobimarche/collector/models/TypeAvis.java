@@ -22,5 +22,6 @@ public class TypeAvis {
     private String typeAvis;
 
     @ManyToOne
+    @JoinColumn(name = "tender_id")
     private Tender tender;
 }

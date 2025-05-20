@@ -49,7 +49,7 @@ public class Tender {
     private List<TypeAvis> typeAvis;
 
     @OneToMany(mappedBy = "tender")
-    private List<Annonce> annonces;
+    private List<Annonce> annoncesLiees;
 
     @Column(name = "family")
     private String famille;
