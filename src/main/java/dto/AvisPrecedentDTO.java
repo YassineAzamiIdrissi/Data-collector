@@ -1,4 +1,4 @@
-package models;
+package dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @ToString
-public  class  AvisPrecedent {
+public  class AvisPrecedentDTO {
     @Getter
     @Setter
     @JsonProperty("NUMEROANNONCE")
