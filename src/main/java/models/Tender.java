@@ -94,53 +94,6 @@ public class Tender {
     private String genre ;
     private String rappel;
 
-
-    @NoArgsConstructor
-    @ToString
-    public static class  Descripteur {
-        @Getter
-        @Setter
-        @JsonProperty("CODE")
-        String code ;
-        @Getter
-        @Setter
-        @JsonProperty("LIBELLE")
-        String lebelle ;
-    }
-
-    @NoArgsConstructor
-    @ToString
-    public static class  AvisPrecedent {
-        @Getter
-        @Setter
-        @JsonProperty("NUMEROANNONCE")
-        String numeroAnnonce ;
-        @Getter
-        @Setter
-        @JsonProperty("NUMEROPARUTION")
-        String numeroParution ;
-
-        @Getter
-        @Setter
-        @JsonProperty("TYPEPARUTION")
-        String typeParution ;
-
-        @Getter
-        @Setter
-        @JsonProperty("DATEPARUTION")
-        String dateParution ;
-
-        @Getter
-        @Setter
-        @JsonProperty("ANNEE")
-        String annee;
-
-        @Getter
-        @Setter
-        @JsonProperty("ANNONCEREF")
-        String annonceRef;
-    }
-
     //*************** Donnees Fields ****************************************
 
     // === IDENTITE ===
@@ -192,35 +145,8 @@ public class Tender {
     private String visiteNon;
     private String renseignementsComplementaires;
 
-    // === Classe Lot interne ===
 
-    @ToString
-    public static class Valeur {
-        @Getter
-        @Setter
-        @JsonProperty("@DEVISE")
-        private String devise;
-        @Getter
-        @Setter
-        @JsonProperty("#text")
-        private String text;
-    }
 
-    @ToString
-    public static class Lot {
-        @Getter
-        @Setter
-        @JsonProperty("DESCRIPTION")
-        private String description;
-        @Getter
-        @Setter
-        @JsonProperty("LIEU_PRINCIPAL")
-        private String lieuPrincipal;
-        @Getter
-        @Setter
-        @JsonProperty("VALEUR")
-        private Valeur valeur;
-    }
 
 
 }
