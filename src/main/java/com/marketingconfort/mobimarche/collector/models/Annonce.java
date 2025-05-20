@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Annonce {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     @Column(name = "announce")
     private String annonce;
