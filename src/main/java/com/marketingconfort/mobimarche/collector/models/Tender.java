@@ -26,6 +26,9 @@ public class Tender {
     @Column(name = "web_id")
     private String idweb;
 
+    @Column(name = "tender_id")
+    private String id_;
+
     @Column(name = "notice_url")
     private String url_avis;
 
