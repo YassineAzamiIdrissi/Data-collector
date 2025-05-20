@@ -3,14 +3,16 @@ package com.marketingconfort.mobimarche.collector.mapper;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
-import com.marketingconfort.mobimarche.collector.mapper.models.AvisPrecedent;
-import com.marketingconfort.mobimarche.collector.mapper.models.Descripteur;
-import com.marketingconfort.mobimarche.collector.mapper.models.Lot;
-import com.marketingconfort.mobimarche.collector.mapper.models.Tender;
+import com.marketingconfort.mobimarche.collector.models.AvisPrecedent;
+import com.marketingconfort.mobimarche.collector.models.Descripteur;
+import com.marketingconfort.mobimarche.collector.models.Lot;
+import com.marketingconfort.mobimarche.collector.models.Tender;
+
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 public class TenderMapper {
 
@@ -52,7 +54,8 @@ public class TenderMapper {
             if (indexation.hasNonNull("DESCRIPTEURS")) {
                 JsonNode descripteursNode = indexation.get("DESCRIPTEURS").get("DESCRIPTEUR");
                 if (descripteursNode != null && descripteursNode.isArray()) {
-                    t.setDescripteurs(mapper.convertValue(descripteursNode, Descripteur[].class));
+                    Descripteur[] tableau = mapper.convertValue(descripteursNode, Descripteur[].class);
+                    t.setDescriptors(Arrays.asList(tableau));
                 }
             }
             if (indexation.hasNonNull("GENRE_V1")) t.setGenre(indexation.get("GENRE_V1").asText()) ;
@@ -135,7 +138,8 @@ public class TenderMapper {
             if (objet.hasNonNull("LOTS")) {
                 JsonNode lotNode = objet.get("LOTS").get("LOT");
                 if (lotNode != null && lotNode.isArray()) {
-                    t.setLots ( mapper.convertValue(lotNode, Lot[].class) ) ;
+                    Lot[] tableau = mapper2.convertValue(lotNode, Lot[].class);
+                    t.setLots (Arrays.asList( tableau ) ) ;
                 }
             }
         }

@@ -218,4 +218,7 @@ public class Tender {
 
     @Column(name = "reminder")
     private String rappel;
+
+    @OneToOne(mappedBy = "AvisPrecedent")
+    private AvisPrecedent avisPrecedent;
 }
