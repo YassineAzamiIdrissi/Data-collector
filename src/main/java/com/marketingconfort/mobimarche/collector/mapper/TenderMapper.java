@@ -2,7 +2,9 @@ package com.marketingconfort.mobimarche.collector.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.marketingconfort.mobimarche.collector.dto.CodeDepartementDTO;
 import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
+import com.marketingconfort.mobimarche.collector.models.CodeDepartement;
 import com.marketingconfort.mobimarche.collector.models.Descripteur;
 import com.marketingconfort.mobimarche.collector.models.Lot;
 import com.marketingconfort.mobimarche.collector.models.Tender;
@@ -17,11 +19,23 @@ public class TenderMapper {
 
 
     public Tender toEntity(TenderDTO tDTO) {
+        Tender t = new Tender();
+        t.setIdweb(tDTO.getIdweb());
+       // t.setId(tDTO.getId());
+        t.setContractfolderid(tDTO.getContractfolderid());
+        t.setObjet(tDTO.getObjet());
+
+        t.setFamille(tDTO.getFamille());
+        t.setEtat(tDTO.getEtat());
+        t.setDateParution(tDTO.getDateParution());
+        t.setDateFinDiffusion(tDTO.getDateFinDiffusion());
+        t.setDateLimitReponse(tDTO.getDateLimitReponse());
+        t.setNomAcheteur(tDTO.getNomAcheteur());
+
 
         JsonNode gestion = tDTO.getGestion();
         JsonNode donnees = tDTO.getDonnees();
 
-        Tender t = new Tender();
 
 //---------------- Extraction gestion ---------------------------
         ObjectMapper mapper = new ObjectMapper();
