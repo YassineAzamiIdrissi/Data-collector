@@ -3,7 +3,6 @@ package com.marketingconfort.mobimarche.collector.mapper;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
-import com.marketingconfort.mobimarche.collector.models.AvisPrecedent;
 import com.marketingconfort.mobimarche.collector.models.Descripteur;
 import com.marketingconfort.mobimarche.collector.models.Lot;
 import com.marketingconfort.mobimarche.collector.models.Tender;
@@ -62,9 +61,7 @@ public class TenderMapper {
 
             if (indexation.hasNonNull("AVISLIEE")) {
                 JsonNode avisLieeNode = indexation.get("AVISLIEE").get("AVIS_PRECEDENT");
-                if (avisLieeNode != null) {
-                    t.setAvisPrecedent(mapper.convertValue(avisLieeNode, AvisPrecedent.class));
-                }
+               // add something here ................
             }
 
         }
