@@ -6,13 +6,11 @@ import lombok.Setter;
 import lombok.ToString;
 
 @ToString
+@Getter
+@Setter
 public class ValeurDTO {
-    @Getter
-    @Setter
     @JsonProperty("@DEVISE")
     private String devise;
-    @Getter
-    @Setter
     @JsonProperty("#text")
     private String text;
 }

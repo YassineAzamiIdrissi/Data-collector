@@ -8,13 +8,11 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @ToString
+@Getter
+@Setter
 public  class AvisPrecedentDTO {
-    @Getter
-    @Setter
     @JsonProperty("NUMEROANNONCE")
     String numeroAnnonce ;
-    @Getter
-    @Setter
     @JsonProperty("NUMEROPARUTION")
     String numeroParution ;
 

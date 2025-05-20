@@ -8,13 +8,11 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @ToString
+@Getter
+@Setter
 public class DescripteurDTO {
-    @Getter
-    @Setter
     @JsonProperty("CODE")
     String code ;
-    @Getter
-    @Setter
     @JsonProperty("LIBELLE")
     String lebelle ;
 }

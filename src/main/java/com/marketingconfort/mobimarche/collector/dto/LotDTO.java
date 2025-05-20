@@ -7,17 +7,16 @@ import lombok.Setter;
 import lombok.ToString;
 
 @ToString
+@Getter
+@Setter
 public class LotDTO {
-    @Getter
-    @Setter
+
     @JsonProperty("DESCRIPTION")
     private String description;
-    @Getter
-    @Setter
+
     @JsonProperty("LIEU_PRINCIPAL")
     private String lieuPrincipal;
-    @Getter
-    @Setter
+
     @JsonProperty("VALEUR")
     private ValeurDTO valeur;
 }
