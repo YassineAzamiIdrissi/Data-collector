@@ -99,7 +99,7 @@ public class Tender {
     private String donneesVille;
 
     @Column(name = "data_buyer_profile_url")
-    private String DonneesUrlProfilAcheteur;
+    private String donneesUrlProfilAcheteur;
 
     @Column(name = "data_full_documents_yes")
     private String donneesIntegraliteDocOui;
