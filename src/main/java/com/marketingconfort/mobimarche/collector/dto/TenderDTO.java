@@ -55,12 +55,12 @@ public class TenderDTO {
     private String nomAcheteur;
 
     @JsonProperty("type_marche")
-    private List<TypeMarcheDTO> typeMarche;
+    private List<TypeMarcheDTO> typeMarcheDTO;
 
 
 
     @JsonProperty("type_avis")
-    private List<TypeAvisDTO> typeAvis;
+    private List<TypeAvisDTO> typeAvisDTO;
 
     @JsonProperty("annoncelie")
     private List<AnnonceDTO> annonceLie;
