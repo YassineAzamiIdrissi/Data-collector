@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -63,7 +62,7 @@ public class TenderDTO {
     private List<TypeAvisDTO> typeAvisDTO;
 
     @JsonProperty("annoncelie")
-    private List<AnnonceDTO> annonceLie;
+    private List<AnnonceLieDTO> annonceLie;
 
 
     @JsonProperty("gestion")

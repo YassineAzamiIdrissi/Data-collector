@@ -1,11 +1,10 @@
 package com.marketingconfort.mobimarche.collector.dto;
 
-import com.marketingconfort.mobimarche.collector.models.Tender;
 import lombok.Data;
 
 
 @Data
-public class AnnonceDTO {
+public class AnnonceLieDTO {
    private Integer id;
    private String annonce;
 }
