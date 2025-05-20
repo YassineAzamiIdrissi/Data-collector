@@ -15,12 +15,15 @@ import java.util.List;
 @Getter
 @Setter
 public class TenderDTO {
+
+    private Integer id ;
+
     @JsonProperty("idweb")
     private String idweb;
 
 
     @JsonProperty("id")
-    private String idd;
+    private String id_;
 
 
     @JsonProperty("contractfolderid")

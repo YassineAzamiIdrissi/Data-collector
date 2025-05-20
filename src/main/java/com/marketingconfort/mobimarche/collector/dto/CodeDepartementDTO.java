@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class CodeDepartementDTO {
-
     private Integer id;
     private String codeDepartement;
 }
