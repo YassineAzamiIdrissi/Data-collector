@@ -1,5 +1,6 @@
 package com.marketingconfort.mobimarche.collector.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,10 @@ public class Tender {
     @Column(name = "web_id")
     private String idweb;
 
+    @Column(name = "notice_url")
+    private String url_avis;
+
+
     @Column(name = "contract_folder_id")
     private String contractfolderid;
 
@@ -49,7 +54,10 @@ public class Tender {
     @Column(name = "status")
     private String etat;
 
-    @Column(name = "publication_date")
+    @Column(name = "offer_publication_date")
+    private Date dateParution;
+
+    @Column(name = "notice_prev_publication_date")
     private Date avisPrecedentDateParution;
 
     @Column(name = "end_of_distribution_date")
@@ -197,19 +205,19 @@ public class Tender {
     @Column(name = "publication_name")
     private String nomPublication;
 
-    @Column(name = "announcement_ref_number")
+    @Column(name = "prev_notice_announce_number")
     private String avisPrecedentNumeroAnnonce;
 
-    @Column(name = "issue_number")
+    @Column(name = "prev_notice_publication_number")
     private String avisPrecedentNumeroParution;
 
-    @Column(name = "issue_type")
+    @Column(name = "prev_notice_publication_type")
     private String avisPrecedentTypeParution;
 
-    @Column(name = "announcement_reference")
+    @Column(name = "prev_notice_announce_reference")
     private String avisPrecedentAnnonceRef;
 
-    @Column(name = "prev_annonce_year")
+    @Column(name = "prev_notice_year")
     private String avisPrecedentAnnee;
 
     @Column(name = "subject_summary")
@@ -218,7 +226,7 @@ public class Tender {
     @Column(name = "procedure_type_alias")
     private String typeProcedure;
 
-    @Column(name = "gender")
+    @Column(name = "type")
     private String genre;
 
     @Column(name = "reminder")
