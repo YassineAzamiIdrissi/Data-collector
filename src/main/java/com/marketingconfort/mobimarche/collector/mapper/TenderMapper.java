@@ -2,18 +2,16 @@ package com.marketingconfort.mobimarche.collector.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.marketingconfort.mobimarche.collector.dto.CodeDepartementDTO;
-import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
-import com.marketingconfort.mobimarche.collector.models.CodeDepartement;
-import com.marketingconfort.mobimarche.collector.models.Descripteur;
-import com.marketingconfort.mobimarche.collector.models.Lot;
-import com.marketingconfort.mobimarche.collector.models.Tender;
+import com.marketingconfort.mobimarche.collector.dto.*;
+import com.marketingconfort.mobimarche.collector.models.*;
 
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class TenderMapper {
 
@@ -21,16 +19,49 @@ public class TenderMapper {
     public Tender toEntity(TenderDTO tDTO) {
         Tender t = new Tender();
         t.setIdweb(tDTO.getIdweb());
-       // t.setId(tDTO.getId());
+        t.setId(tDTO.getId());
+        t.setId_(tDTO.getId_());
         t.setContractfolderid(tDTO.getContractfolderid());
         t.setObjet(tDTO.getObjet());
-
         t.setFamille(tDTO.getFamille());
         t.setEtat(tDTO.getEtat());
         t.setDateParution(tDTO.getDateParution());
         t.setDateFinDiffusion(tDTO.getDateFinDiffusion());
         t.setDateLimitReponse(tDTO.getDateLimitReponse());
         t.setNomAcheteur(tDTO.getNomAcheteur());
+        //-----------------------------
+        CodeDepartementMapper cdMapper = new CodeDepartementMapper();
+        List<CodeDepartement> codeDepartements = new ArrayList<>();
+        List<CodeDepartementDTO> codeDepartementDTOs = tDTO.getCodeDepartementDTO();
+        for(CodeDepartementDTO cdDTO : codeDepartementDTOs) {
+            codeDepartements.add(cdMapper.toEntity(cdDTO));
+        }
+        t.setCodesDepartement(codeDepartements);
+        //----------------------------
+        TypeMarcheMapper tmMapper = new TypeMarcheMapper();
+        List<TypeMarche> typeMarches = new ArrayList<>();
+        List<TypeMarcheDTO> typeMarcheDTOs = tDTO.getTypeMarcheDTO();
+        for(TypeMarcheDTO tmDTO : typeMarcheDTOs) {
+            typeMarches.add(tmMapper.toEntity(tmDTO));
+        }
+        t.setTypeMarche(typeMarches);
+        //----------------------------
+        TypeAvisMapper taMapper = new TypeAvisMapper();
+        List<TypeAvis> typeAviss = new ArrayList<>();
+        List<TypeAvisDTO> typeAvisDTOs = tDTO.getTypeAvisDTO();
+        for(TypeAvisDTO taDTO : typeAvisDTOs) {
+            typeAviss.add(taMapper.toEntity(taDTO));
+        }
+        t.setTypeAvis(typeAviss);
+       //-----------------------------
+        AnnonceMapper annonceMapper = new AnnonceMapper();
+        List<Annonce> annonces = new ArrayList<>();
+        List<AnnonceDTO> annonceDTOs = tDTO.getAnnonceLie();
+        for(AnnonceDTO annonceDTO : annonceDTOs) {
+            annonces.add(annonceMapper.toEntity(annonceDTO));
+        }
+        t.setAnnonceLie(annonces);
+        //-----------------------------
 
 
         JsonNode gestion = tDTO.getGestion();
