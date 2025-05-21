@@ -1,6 +1,7 @@
 package com.marketingconfort.mobimarche.collector.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class TenderDTO {
-
+    @JsonIgnore
     private Integer id;
 
     @JsonProperty("idweb")
