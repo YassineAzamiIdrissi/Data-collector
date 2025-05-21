@@ -4,7 +4,8 @@ package com.marketingconfort.mobimarche.collector.services;
 import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
 import com.marketingconfort.mobimarche.collector.dto.TenderResponseDTO;
 import com.marketingconfort.mobimarche.collector.mapper.TenderMapper;
-import com.marketingconfort.mobimarche.collector.models.Tender;
+import com.marketingconfort.mobimarche.collector.models.*;
+import com.marketingconfort.mobimarche.collector.repositories.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,6 +19,13 @@ import java.util.List;
 public class TenderDtoGetterService {
     private final RestTemplate restTemplate;
     private final TenderMapper tenderMapper;
+
+
+    private final TenderRepository tenderRepo;
+    private final CodeDepartementRepository codeDepRepo;
+    private final TypeMarcheRepository typeMarcheRepo;
+    private final TypeAvisRepository typeAvisRepo;
+    private final AnnonceLieRepository annonceLieRepo;
 
     public List<TenderDTO> getTenderDTOById(String id) {
         try {
@@ -39,7 +47,7 @@ public class TenderDtoGetterService {
         return Collections.emptyList();
     }
 
-    public List<TenderDTO> getOffresByYear(String year, String limit) {
+    public List<TenderDTO> getTendersByYear(String year, String limit) {
         try {
             String conditionYear = "dateparution>='" + year + "-01-01'";
             String url = "https://boamp-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/boamp/records"
@@ -52,13 +60,46 @@ public class TenderDtoGetterService {
 
             if (response != null && response.getResults() != null) {
                 List<TenderDTO> results = response.getResults();
-                List<Tender> concerned = new ArrayList<>();
+                List<Tender> tendersEnts = new ArrayList<>();
                 for (TenderDTO dto : results) {
-                    concerned.add(tenderMapper.toEntity(dto));
+                    Tender concernedTender = tenderMapper.toEntity(dto);
+                    List<AnnonceLie> annonceLies = new ArrayList<>();
+                    List<TypeMarche> typesMarches = new ArrayList<>();
+                    List<TypeAvis> typesAvis = new ArrayList<>();
+                    List<CodeDepartement> codesDep = new ArrayList<>();
+                    for (String annonceLie : dto.getAnnonceLies()) {
+                        AnnonceLie annonceLieEntity = AnnonceLie.builder().
+                                annonce(annonceLie).
+                                build();
+                        annonceLieEntity.setTender(concernedTender);
+                        annonceLies.add(annonceLieEntity);
+                    }
+                    for (String typeMarche : dto.getTypeMarches()) {
+                        TypeMarche typeMarcheEntity = TypeMarche.builder().
+                                typeMarche(typeMarche).build();
+                        typeMarcheEntity.setTender(concernedTender);
+                        typesMarches.add(typeMarcheEntity);
+                    }
+                    for (String typeAvis : dto.getTypeAviss()) {
+                        TypeAvis typeAvisEntity = TypeAvis.builder().
+                                typeAvis(typeAvis).build();
+                        typeAvisEntity.setTender(concernedTender);
+                        typesAvis.add(typeAvisEntity);
+                    }
+                    for (String codeDep : dto.getCodeDepartements()) {
+                        CodeDepartement codeDepEntity = CodeDepartement.builder().codeDepartement(
+                                codeDep
+                        ).build();
+                        codeDepEntity.setTender(concernedTender);
+                        codesDep.add(codeDepEntity);
+                    }
+                    tenderRepo.save(concernedTender);
+                    annonceLieRepo.saveAll(annonceLies);
+                    typeMarcheRepo.saveAll(typesMarches);
+                    typeAvisRepo.saveAll(typesAvis);
+                    codeDepRepo.saveAll(codesDep);
                 }
-                for (Tender tender : concerned) {
 
-                }
                 return results;
             }
 

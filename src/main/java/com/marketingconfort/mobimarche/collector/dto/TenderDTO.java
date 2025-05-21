@@ -58,7 +58,6 @@ public class TenderDTO {
     private List<String> typeMarches;
 
 
-
     @JsonProperty("type_avis")
     private List<String> typeAviss;
 
@@ -74,6 +73,6 @@ public class TenderDTO {
 
 
     @JsonProperty("url_avis")
-    private String url_avis ;
+    private String url_avis;
 
 }
