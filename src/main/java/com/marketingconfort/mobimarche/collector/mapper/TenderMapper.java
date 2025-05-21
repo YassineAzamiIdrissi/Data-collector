@@ -30,7 +30,8 @@ public class TenderMapper {
         t.setNomAcheteur(tDTO.getNomAcheteur());
         t.setUrl_avis(tDTO.getUrl_avis());
         //-----------------------------
-        CodeDepartementMapper cdMapper = new CodeDepartementMapper();
+       // t.setCodesDepartement();
+    /*    CodeDepartementMapper cdMapper = new CodeDepartementMapper();
         List<CodeDepartement> codeDepartements = new ArrayList<>();
         List<CodeDepartementDTO> codeDepartementDTOs = tDTO.getCodeDepartementDTO();
         for (CodeDepartementDTO cdDTO : codeDepartementDTOs) {
@@ -60,7 +61,7 @@ public class TenderMapper {
         for (AnnonceLieDTO annonceDTO : annonceDTOs) {
             annonces.add(annonceMapper.toEntity(annonceDTO));
         }
-        t.setAnnonceLies(annonces);
+        t.setAnnonceLies(annonces);*/
         //-----------------------------
 
 
