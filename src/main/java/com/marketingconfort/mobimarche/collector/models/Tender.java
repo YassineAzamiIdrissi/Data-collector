@@ -60,9 +60,6 @@ public class Tender {
     @Column(name = "offer_publication_date")
     private Date dateParution;
 
-    @Column(name = "notice_prev_publication_date")
-    private Date avisPrecedentDateParution;
-
     @Column(name = "end_of_distribution_date")
     private Date dateFinDiffusion;
 
@@ -222,6 +219,9 @@ public class Tender {
 
     @Column(name = "management_prev_notice_year")
     private String gestionAvisPrecedentAnnee;
+
+    @Column(name = "management_prev_notice_publication_date")
+    private Date gestionAvisPrecedentDateParution;
 
     @Column(name = "management_subject_summary")
     private String gestionResumeObjet;

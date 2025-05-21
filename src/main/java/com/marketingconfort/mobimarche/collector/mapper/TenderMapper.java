@@ -29,6 +29,7 @@ public class TenderMapper {
         t.setDateFinDiffusion(tDTO.getDateFinDiffusion());
         t.setDateLimitReponse(tDTO.getDateLimitReponse());
         t.setNomAcheteur(tDTO.getNomAcheteur());
+        t.setUrl_avis(tDTO.getUrl_avis());
         //-----------------------------
         CodeDepartementMapper cdMapper = new CodeDepartementMapper();
         List<CodeDepartement> codeDepartements = new ArrayList<>();
