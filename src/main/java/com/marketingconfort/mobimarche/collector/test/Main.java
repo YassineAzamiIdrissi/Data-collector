@@ -1,6 +1,7 @@
 package com.marketingconfort.mobimarche.collector.test;
 
 import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
+import com.marketingconfort.mobimarche.collector.mapper.TenderMapper;
 import com.marketingconfort.mobimarche.collector.services.TenderDtoGetterService;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,16 +19,14 @@ public class Main {
         ////
 
         // Créez le service
-        TenderDtoGetterService tenderDtoGetterService = new TenderDtoGetterService(restTemplate);
+        TenderDtoGetterService tenderDtoGetterService = new TenderDtoGetterService(restTemplate , new TenderMapper());
 
         // Récupérer les offres pour un idweb spécifique
         List<TenderDTO> offres = tenderDtoGetterService.getTenderDTOById("22_170271");
         System.out.println("----------------L'offre -------------------------");
-       System.out.println(offres.get(0));
+        System.out.println(offres.get(0));
 
 
     }
 
 }
-
-
