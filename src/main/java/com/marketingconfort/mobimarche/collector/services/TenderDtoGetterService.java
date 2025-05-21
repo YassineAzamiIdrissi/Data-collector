@@ -67,12 +67,14 @@ public class TenderDtoGetterService {
                     List<TypeMarche> typesMarches = new ArrayList<>();
                     List<TypeAvis> typesAvis = new ArrayList<>();
                     List<CodeDepartement> codesDep = new ArrayList<>();
-                    for (String annonceLie : dto.getAnnonceLies()) {
-                        AnnonceLie annonceLieEntity = AnnonceLie.builder().
-                                annonce(annonceLie).
-                                build();
-                        annonceLieEntity.setTender(concernedTender);
-                        annonceLies.add(annonceLieEntity);
+                    if (dto.getAnnonceLies() != null) {
+                        for (String annonceLie : dto.getAnnonceLies()) {
+                            AnnonceLie annonceLieEntity = AnnonceLie.builder().
+                                    annonce(annonceLie).
+                                    build();
+                            annonceLieEntity.setTender(concernedTender);
+                            annonceLies.add(annonceLieEntity);
+                        }
                     }
                     for (String typeMarche : dto.getTypeMarches()) {
                         TypeMarche typeMarcheEntity = TypeMarche.builder().

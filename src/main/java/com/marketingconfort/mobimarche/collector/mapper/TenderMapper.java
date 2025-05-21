@@ -2,15 +2,13 @@ package com.marketingconfort.mobimarche.collector.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.marketingconfort.mobimarche.collector.dto.*;
+import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
 import com.marketingconfort.mobimarche.collector.models.*;
 import org.springframework.stereotype.Component;
-
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,21 +31,22 @@ public class TenderMapper {
         t.setNomAcheteur(tDTO.getNomAcheteur());
         t.setUrl_avis(tDTO.getUrl_avis());
         //-----------------------------
-        CodeDepartementMapper cdMapper = new CodeDepartementMapper();
+        /*  CodeDepartementMapper cdMapper = new CodeDepartementMapper();
         List<CodeDepartement> codeDepartements = cdMapper.toListEntity(tDTO.getCodeDepartements());
-        t.setCodesDepartements(codeDepartements);
+        t.setCodesDepartements(codeDepartements);*/
         //----------------------------
-        TypeMarcheMapper tmMapper = new TypeMarcheMapper();
+        /*TypeMarcheMapper tmMapper = new TypeMarcheMapper();
         List<TypeMarche> typeMarches = tmMapper.toListEntity(tDTO.getTypeMarches());
-        t.setTypeMarches(typeMarches);
+        t.setTypeMarches(typeMarches);*/
         //----------------------------
-        TypeAvisMapper taMapper = new TypeAvisMapper();
+        /*TypeAvisMapper taMapper = new TypeAvisMapper();
         List<TypeAvis> typeAviss = taMapper.toListEntity(tDTO.getTypeAviss());
-        t.setTypeAviss(typeAviss);
+        t.setTypeAviss(typeAviss);*/
         //-----------------------------
-        AnnonceLieMapper annonceMapper = new AnnonceLieMapper();
+        /*  AnnonceLieMapper annonceMapper = new AnnonceLieMapper();
         List<AnnonceLie> annonces = annonceMapper.toListEntity(tDTO.getAnnonceLies());
-        t.setAnnonceLies(annonces);
+        t.setAnnonceLies(annonces);*/
+
         //-----------------------------
 
 
