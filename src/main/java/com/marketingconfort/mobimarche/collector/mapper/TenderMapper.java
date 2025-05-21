@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marketingconfort.mobimarche.collector.dto.*;
 import com.marketingconfort.mobimarche.collector.models.*;
+import org.springframework.stereotype.Component;
 
 
 import java.io.IOException;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+@Component
 public class TenderMapper {
 
 
@@ -30,38 +33,21 @@ public class TenderMapper {
         t.setNomAcheteur(tDTO.getNomAcheteur());
         t.setUrl_avis(tDTO.getUrl_avis());
         //-----------------------------
-       // t.setCodesDepartement();
-    /*    CodeDepartementMapper cdMapper = new CodeDepartementMapper();
-        List<CodeDepartement> codeDepartements = new ArrayList<>();
-        List<CodeDepartementDTO> codeDepartementDTOs = tDTO.getCodeDepartementDTO();
-        for (CodeDepartementDTO cdDTO : codeDepartementDTOs) {
-            codeDepartements.add(cdMapper.toEntity(cdDTO));
-        }
-        t.setCodesDepartement(codeDepartements);
+        CodeDepartementMapper cdMapper = new CodeDepartementMapper();
+        List<CodeDepartement> codeDepartements = cdMapper.toListEntity(tDTO.getCodeDepartements());
+        t.setCodesDepartements(codeDepartements);
         //----------------------------
         TypeMarcheMapper tmMapper = new TypeMarcheMapper();
-        List<TypeMarche> typeMarches = new ArrayList<>();
-        List<TypeMarcheDTO> typeMarcheDTOs = tDTO.getTypeMarcheDTO();
-        for (TypeMarcheDTO tmDTO : typeMarcheDTOs) {
-            typeMarches.add(tmMapper.toEntity(tmDTO));
-        }
-        t.setTypeMarche(typeMarches);
+        List<TypeMarche> typeMarches = tmMapper.toListEntity(tDTO.getTypeMarches());
+        t.setTypeMarches(typeMarches);
         //----------------------------
         TypeAvisMapper taMapper = new TypeAvisMapper();
-        List<TypeAvis> typeAviss = new ArrayList<>();
-        List<TypeAvisDTO> typeAvisDTOs = tDTO.getTypeAvisDTO();
-        for (TypeAvisDTO taDTO : typeAvisDTOs) {
-            typeAviss.add(taMapper.toEntity(taDTO));
-        }
-        t.setTypeAvis(typeAviss);
+        List<TypeAvis> typeAviss = taMapper.toListEntity(tDTO.getTypeAviss());
+        t.setTypeAviss(typeAviss);
         //-----------------------------
         AnnonceLieMapper annonceMapper = new AnnonceLieMapper();
-        List<AnnonceLie> annonces = new ArrayList<>();
-        List<AnnonceLieDTO> annonceDTOs = tDTO.getAnnonceLie();
-        for (AnnonceLieDTO annonceDTO : annonceDTOs) {
-            annonces.add(annonceMapper.toEntity(annonceDTO));
-        }
-        t.setAnnonceLies(annonces);*/
+        List<AnnonceLie> annonces = annonceMapper.toListEntity(tDTO.getAnnonceLies());
+        t.setAnnonceLies(annonces);
         //-----------------------------
 
 

@@ -21,4 +21,8 @@ public class TypeMarche {
     @ManyToOne
     @JoinColumn(name = "tender_id")
     private Tender tender;
+
+    public TypeMarche(String typeMarche) {
+        this.typeMarche = typeMarche;
+    }
 }

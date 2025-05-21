@@ -40,13 +40,13 @@ public class Tender {
     private String objet;
 
     @OneToMany(mappedBy = "tender")
-    private List<CodeDepartement> codesDepartement;
+    private List<CodeDepartement> codesDepartements;
 
     @OneToMany(mappedBy = "tender")
     private List<Lot> lots;
 
     @OneToMany(mappedBy = "tender")
-    private List<TypeAvis> typeAvis;
+    private List<TypeAvis> typeAviss;
 
     @OneToMany(mappedBy = "tender")
     private List<AnnonceLie> annonceLies;
@@ -70,7 +70,7 @@ public class Tender {
     private String nomAcheteur;
 
     @OneToMany(mappedBy = "tender")
-    private List<TypeMarche> typeMarche;
+    private List<TypeMarche> typeMarches;
 
     @OneToMany(mappedBy = "tender")
     private List<Descripteur> descriptors;

@@ -24,4 +24,8 @@ public class TypeAvis {
     @ManyToOne
     @JoinColumn(name = "tender_id")
     private Tender tender;
+
+    public TypeAvis(String typeAvis) {
+        this.typeAvis = typeAvis;
+    }
 }

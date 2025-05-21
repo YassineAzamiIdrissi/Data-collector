@@ -23,4 +23,6 @@ public class Descripteur {
     @ManyToOne
     @JoinColumn(name = "tender_id")
     private Tender tender;
+
+
 }

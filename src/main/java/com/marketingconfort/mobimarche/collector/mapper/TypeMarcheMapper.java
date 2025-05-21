@@ -1,14 +1,18 @@
 package com.marketingconfort.mobimarche.collector.mapper;
 
-import com.marketingconfort.mobimarche.collector.dto.TypeMarcheDTO;
 import com.marketingconfort.mobimarche.collector.models.TypeMarche;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TypeMarcheMapper {
 
-    TypeMarche toEntity(TypeMarcheDTO tmDTO){
-        TypeMarche tm = new TypeMarche();
-        tm.setId(tmDTO.getId());
-        tm.setTypeMarche(tmDTO.getTypeMarche());
-        return tm;
+
+    public List<TypeMarche> toListEntity(List<String> typeMarches) {
+        List<TypeMarche> r = new ArrayList<>();
+        for (String typeMarche : typeMarches){
+            r.add(new TypeMarche(typeMarche));
+        }
+        return r ;
     }
 }

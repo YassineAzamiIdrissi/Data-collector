@@ -34,7 +34,7 @@ public class TenderDTO {
     private String objet;
 
     @JsonProperty("code_departement")
-    private List<String> codeDepartementDTO;
+    private List<String> codeDepartements;
 
     @JsonProperty("famille")
     private String famille;
@@ -55,15 +55,15 @@ public class TenderDTO {
     private String nomAcheteur;
 
     @JsonProperty("type_marche")
-    private List<String> typeMarcheDTO;
+    private List<String> typeMarches;
 
 
 
     @JsonProperty("type_avis")
-    private List<String> typeAvisDTO;
+    private List<String> typeAviss;
 
     @JsonProperty("annoncelie")
-    private List<String> annonceLie;
+    private List<String> annonceLies;
 
 
     @JsonProperty("gestion")

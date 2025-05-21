@@ -1,15 +1,19 @@
 package com.marketingconfort.mobimarche.collector.mapper;
 
-import com.marketingconfort.mobimarche.collector.dto.CodeDepartementDTO;
-import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
+
 import com.marketingconfort.mobimarche.collector.models.CodeDepartement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CodeDepartementMapper {
 
-    public CodeDepartement toEntity(CodeDepartementDTO cdDTO) {
-        CodeDepartement cd = new CodeDepartement();
-        cd.setId(cdDTO.getId());
-        cd.setCodeDepartement(cdDTO.getCodeDepartement());
-        return cd ;
+
+    public List<CodeDepartement> toListEntity(List<String> codeDepartements) {
+        List<CodeDepartement> r = new ArrayList<>();
+        for (String cd : codeDepartements){
+            r.add(new CodeDepartement(cd));
+        }
+        return r ;
     }
 }

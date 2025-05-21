@@ -1,14 +1,17 @@
 package com.marketingconfort.mobimarche.collector.mapper;
 
-import com.marketingconfort.mobimarche.collector.dto.AnnonceLieDTO;
 import com.marketingconfort.mobimarche.collector.models.AnnonceLie;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnnonceLieMapper {
 
-    public AnnonceLie toEntity(AnnonceLieDTO aDTO) {
-        AnnonceLie a = new AnnonceLie();
-        a.setId(aDTO.getId());
-        a.setAnnonce(aDTO.getAnnonce());
-        return a ;
+    public List<AnnonceLie> toListEntity(List<String> annoncesLies) {
+        List<AnnonceLie> r = new ArrayList<>();
+        for (String annonce : annoncesLies){
+            r.add(new AnnonceLie(annonce));
+        }
+        return r ;
     }
 }
