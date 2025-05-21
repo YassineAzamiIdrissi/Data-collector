@@ -1,15 +1,11 @@
 package com.marketingconfort.mobimarche.collector.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Data;
 
 
 @Data
+@Builder
 public class AnnonceLieDTO {
-   @JsonIgnore
-   private Integer id;
-
-   @JsonProperty("annonce_lie")
-   private String annonce;
+    private String annonce;
 }
