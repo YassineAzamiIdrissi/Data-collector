@@ -19,7 +19,6 @@ public class TenderMapper {
     public Tender toEntity(TenderDTO tDTO) {
         Tender t = new Tender();
         t.setIdweb(tDTO.getIdweb());
-        t.setId(tDTO.getId());
         t.setId_(tDTO.getId_());
         t.setContractfolderid(tDTO.getContractfolderid());
         t.setObjet(tDTO.getObjet());
