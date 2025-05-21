@@ -33,7 +33,7 @@ public class TenderMapper {
         CodeDepartementMapper cdMapper = new CodeDepartementMapper();
         List<CodeDepartement> codeDepartements = new ArrayList<>();
         List<CodeDepartementDTO> codeDepartementDTOs = tDTO.getCodeDepartementDTO();
-        for(CodeDepartementDTO cdDTO : codeDepartementDTOs) {
+        for (CodeDepartementDTO cdDTO : codeDepartementDTOs) {
             codeDepartements.add(cdMapper.toEntity(cdDTO));
         }
         t.setCodesDepartement(codeDepartements);
@@ -41,7 +41,7 @@ public class TenderMapper {
         TypeMarcheMapper tmMapper = new TypeMarcheMapper();
         List<TypeMarche> typeMarches = new ArrayList<>();
         List<TypeMarcheDTO> typeMarcheDTOs = tDTO.getTypeMarcheDTO();
-        for(TypeMarcheDTO tmDTO : typeMarcheDTOs) {
+        for (TypeMarcheDTO tmDTO : typeMarcheDTOs) {
             typeMarches.add(tmMapper.toEntity(tmDTO));
         }
         t.setTypeMarche(typeMarches);
@@ -49,15 +49,15 @@ public class TenderMapper {
         TypeAvisMapper taMapper = new TypeAvisMapper();
         List<TypeAvis> typeAviss = new ArrayList<>();
         List<TypeAvisDTO> typeAvisDTOs = tDTO.getTypeAvisDTO();
-        for(TypeAvisDTO taDTO : typeAvisDTOs) {
+        for (TypeAvisDTO taDTO : typeAvisDTOs) {
             typeAviss.add(taMapper.toEntity(taDTO));
         }
         t.setTypeAvis(typeAviss);
-       //-----------------------------
+        //-----------------------------
         AnnonceLieMapper annonceMapper = new AnnonceLieMapper();
         List<AnnonceLie> annonces = new ArrayList<>();
         List<AnnonceLieDTO> annonceDTOs = tDTO.getAnnonceLie();
-        for(AnnonceLieDTO annonceDTO : annonceDTOs) {
+        for (AnnonceLieDTO annonceDTO : annonceDTOs) {
             annonces.add(annonceMapper.toEntity(annonceDTO));
         }
         t.setAnnonceLies(annonces);
@@ -88,12 +88,15 @@ public class TenderMapper {
 
         JsonNode indexation = gestion.get("INDEXATION");
         if (indexation != null && indexation.isObject()) {
-            if (indexation.hasNonNull("NOMPUBLICATION")) t.setGestionNomPublication(indexation.get("NOMPUBLICATION").asText());
+            if (indexation.hasNonNull("NOMPUBLICATION"))
+                t.setGestionNomPublication(indexation.get("NOMPUBLICATION").asText());
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             if (indexation.hasNonNull("DATE_PUBLICATION")) {
-                t.setGestionDatePublication( LocalDate.parse(indexation.get("DATE_PUBLICATION").asText(), formatter));
-            }  if (indexation.hasNonNull("RESUME_OBJET")) t.setGestionResumeObjet(indexation.get("RESUME_OBJET").asText());
-            if (indexation.hasNonNull("TYPE_PROCEDURE_V1")) t.setGestionTypeProcedure(indexation.get("TYPE_PROCEDURE_V1").asText());
+                t.setGestionDatePublication(LocalDate.parse(indexation.get("DATE_PUBLICATION").asText(), formatter));
+            }
+            if (indexation.hasNonNull("RESUME_OBJET")) t.setGestionResumeObjet(indexation.get("RESUME_OBJET").asText());
+            if (indexation.hasNonNull("TYPE_PROCEDURE_V1"))
+                t.setGestionTypeProcedure(indexation.get("TYPE_PROCEDURE_V1").asText());
             if (indexation.hasNonNull("RAPPEL_V1")) t.setGestionRappel(indexation.get("RAPPEL_V1").asText());
             if (indexation.hasNonNull("DESCRIPTEURS")) {
                 JsonNode descripteursNode = indexation.get("DESCRIPTEURS").get("DESCRIPTEUR");
@@ -102,11 +105,39 @@ public class TenderMapper {
                     t.setDescriptors(Arrays.asList(tableau));
                 }
             }
-            if (indexation.hasNonNull("GENRE_V1")) t.setGestionGenre(indexation.get("GENRE_V1").asText()) ;
+            if (indexation.hasNonNull("GENRE_V1")) t.setGestionGenre(indexation.get("GENRE_V1").asText());
 
             if (indexation.hasNonNull("AVISLIEE")) {
                 JsonNode avisLieeNode = indexation.get("AVISLIEE").get("AVIS_PRECEDENT");
-               // add something here ................
+                if (avisLieeNode != null && avisLieeNode.isObject()) {
+                    if (avisLieeNode.hasNonNull("AVIS_PRECEDENT")) {
+                        JsonNode avisPrecedent = avisLieeNode.get("AVIS_PRECEDENT");
+                        if (avisPrecedent != null && avisPrecedent.isObject()) {
+                            if (avisPrecedent.hasNonNull("NUMEROANNONCE"))
+                                t.setGestionNumAnnonce(avisPrecedent.get("NUMEROANNONCE").
+                                        asText());
+                            if (avisPrecedent.hasNonNull("NUMEROPARUTION"))
+                                t.setGestionAvisPrecedentNumeroAnnonce(avisPrecedent.get("NUMEROPARUTION").
+                                        asText());
+
+                            if (avisPrecedent.hasNonNull("TYPEPARUTION"))
+                                t.setGestionAvisPrecedentTypeParution(avisPrecedent.get("TYPEPARUTION").
+                                        asText());
+
+                            if (avisPrecedent.hasNonNull("DATEPARUTION"))
+                                t.setGestionAvisPrecedentTypeParution(avisPrecedent.get("DATEPARUTION").
+                                        asText());
+
+                            if (avisPrecedent.hasNonNull("ANNEE"))
+                                t.setGestionAvisPrecedentAnnee(avisPrecedent.get("ANNEE").
+                                        asText());
+
+                            if (avisPrecedent.hasNonNull("ANNONCEREF"))
+                                t.setGestionAvisPrecedentAnnonceRef(avisPrecedent.get("ANNONCEREF").
+                                        asText());
+                        }
+                    }
+                }
             }
 
         }
@@ -127,7 +158,7 @@ public class TenderMapper {
                     identite.get("DENOMINATION").asText());
             JsonNode typeIdentNational = identite.get("TYPE_IDENT_NATIONAL");
             if (typeIdentNational != null && typeIdentNational.isObject()) {
-                if (typeIdentNational.hasNonNull("SIRET")) t.setDonneesSiret( typeIdentNational.get("SIRET").asText());
+                if (typeIdentNational.hasNonNull("SIRET")) t.setDonneesSiret(typeIdentNational.get("SIRET").asText());
             }
             if (identite.hasNonNull("CODE_IDENT_NATIONAL"))
                 t.setDonneesCodeIdentNational(identite.get("CODE_IDENT_NATIONAL").asText());
@@ -135,9 +166,9 @@ public class TenderMapper {
             if (identite.hasNonNull("CP")) t.setDonneesCp(identite.get("CP").asText());
             if (identite.hasNonNull("VILLE")) t.setDonneesVille(identite.get("VILLE").asText());
             if (identite.hasNonNull("URL_PROFIL_ACHETEUR"))
-                t.setDonneesUrlProfilAcheteur( identite.get("URL_PROFIL_ACHETEUR").asText());
+                t.setDonneesUrlProfilAcheteur(identite.get("URL_PROFIL_ACHETEUR").asText());
             if (identite.hasNonNull("INTEGRALITE_DOC_OUI"))
-                t.setDonneesIntegraliteDocOui( identite.get("INTEGRALITE_DOC_OUI").asText());
+                t.setDonneesIntegraliteDocOui(identite.get("INTEGRALITE_DOC_OUI").asText());
             if (identite.hasNonNull("AGIT_POUR_AUTRE_COMPTE_NON"))
                 t.setDonneesAgitPourAutreCompteNon(identite.get("AGIT_POUR_AUTRE_COMPTE_NON").asText());
             if (identite.hasNonNull("ORGANISME_ACHETEUR_CENTRAL_NON"))
@@ -148,7 +179,7 @@ public class TenderMapper {
             if (objet.hasNonNull("TITRE_MARCHE")) t.setDonneesTitreMarche
                     (objet.get("TITRE_MARCHE").asText());
             if (objet.hasNonNull("OBJET_COMPLET"))
-                t.setDonneesObjetComplet( objet.get("OBJET_COMPLET").asText());
+                t.setDonneesObjetComplet(objet.get("OBJET_COMPLET").asText());
 
             JsonNode cpv = objet.get("CPV");
             if (cpv != null && cpv.isObject()) {
@@ -181,9 +212,15 @@ public class TenderMapper {
                 JsonNode lotNode = objet.get("LOTS").get("LOT");
                 if (lotNode != null && lotNode.isArray()) {
                     Lot[] tableau = mapper2.convertValue(lotNode, Lot[].class);
-                    t.setLots (Arrays.asList( tableau ) ) ;
+                    t.setLots(Arrays.asList(tableau));
                 }
             }
+
+            if (objet.hasNonNull("DIV_EN_LOTS")) {
+                t.setDonneesDivEnLots(objet.get("DIV_EN_LOTS").asText());
+            }
+
+
         }
         JsonNode procedure = donnees.get("PROCEDURE");
         if (procedure != null && procedure.isObject()) {
@@ -244,12 +281,13 @@ public class TenderMapper {
 
         JsonNode conditionRelativeMarche = donnees.get("CONDITION_RELATIVE_MARCHE");
         if (conditionRelativeMarche != null && conditionRelativeMarche.isObject()) {
-            t.setDonneesParticipationElectroniqueAutorisee(
-                    conditionRelativeMarche.get("PARTICIPATION_ELECTRONIQUE_AUTORISEE").asText()
-            );
+            if (conditionRelativeMarche.hasNonNull("PARTICIPATION_ELECTRONIQUE_AUTORISEE"))
+                t.setDonneesParticipationElectroniqueAutorisee(
+                        conditionRelativeMarche.get("PARTICIPATION_ELECTRONIQUE_AUTORISEE").asText()
+                );
         }
 
 //--------------------------------------------------------------
-        return t ;
+        return t;
     }
 }

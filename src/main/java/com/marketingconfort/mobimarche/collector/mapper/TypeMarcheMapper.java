@@ -1,8 +1,6 @@
 package com.marketingconfort.mobimarche.collector.mapper;
 
-import com.marketingconfort.mobimarche.collector.dto.TypeAvisDTO;
 import com.marketingconfort.mobimarche.collector.dto.TypeMarcheDTO;
-import com.marketingconfort.mobimarche.collector.models.TypeAvis;
 import com.marketingconfort.mobimarche.collector.models.TypeMarche;
 
 public class TypeMarcheMapper {

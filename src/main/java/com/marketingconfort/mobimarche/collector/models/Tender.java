@@ -1,6 +1,5 @@
 package com.marketingconfort.mobimarche.collector.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +24,7 @@ public class Tender {
     // offre  : : : : ::: : : : : : : : : : : : : : : :
     @Column(name = "web_id")
     private String idweb;
+
 
     @Column(name = "tender_id")
     private String id_;
@@ -110,8 +110,6 @@ public class Tender {
     @Column(name = "data_contract_title")
     private String donneesTitreMarche;
 
-    @Column(name = "data_contract_type")
-    private String donneesType_Marche;
 
     @Column(name = "data_full_subject")
     private String donneesObjetComplet;
@@ -132,7 +130,7 @@ public class Tender {
     private String donneesMarcheReserveNon;
 
     @Column(name = "data_divided_into_lots")
-    private boolean donneesDivEnLots;
+    private String donneesDivEnLots;
 
 
     @Column(name = "data_procedure_type")
