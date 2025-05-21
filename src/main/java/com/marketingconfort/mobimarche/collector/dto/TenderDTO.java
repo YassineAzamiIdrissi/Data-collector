@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 public class TenderDTO {
 
-    private Integer id ;
+    private Integer id;
 
     @JsonProperty("idweb")
     private String idweb;
