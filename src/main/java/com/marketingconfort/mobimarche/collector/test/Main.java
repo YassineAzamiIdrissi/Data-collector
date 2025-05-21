@@ -24,11 +24,9 @@ public class Main {
         // Récupérer les offres pour un idweb spécifique
         List<TenderDTO> offres = tenderDtoGetterService.getTenderDTOById("22_170271");
         System.out.println("----------------L'offre -------------------------");
-       System.out.println(offres.get(0));
+        System.out.println(offres.get(0));
 
 
     }
 
 }
-
-
