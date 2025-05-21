@@ -114,10 +114,10 @@ public class TenderMapper {
                         JsonNode avisPrecedent = avisLieeNode.get("AVIS_PRECEDENT");
                         if (avisPrecedent != null && avisPrecedent.isObject()) {
                             if (avisPrecedent.hasNonNull("NUMEROANNONCE"))
-                                t.setGestionNumAnnonce(avisPrecedent.get("NUMEROANNONCE").
+                                t.setGestionAvisPrecedentNumeroAnnonce(avisPrecedent.get("NUMEROANNONCE").
                                         asText());
                             if (avisPrecedent.hasNonNull("NUMEROPARUTION"))
-                                t.setGestionAvisPrecedentNumeroAnnonce(avisPrecedent.get("NUMEROPARUTION").
+                                t.setGestionAvisPrecedentNumeroParution(avisPrecedent.get("NUMEROPARUTION").
                                         asText());
 
                             if (avisPrecedent.hasNonNull("TYPEPARUTION"))
@@ -125,7 +125,7 @@ public class TenderMapper {
                                         asText());
 
                             if (avisPrecedent.hasNonNull("DATEPARUTION"))
-                                t.setGestionAvisPrecedentTypeParution(avisPrecedent.get("DATEPARUTION").
+                                t.setGestionAvisPrecedentDateParution(avisPrecedent.get("DATEPARUTION").
                                         asText());
 
                             if (avisPrecedent.hasNonNull("ANNEE"))

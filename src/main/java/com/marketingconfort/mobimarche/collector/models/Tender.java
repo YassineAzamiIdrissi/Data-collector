@@ -219,7 +219,7 @@ public class Tender {
     private String gestionAvisPrecedentAnnee;
 
     @Column(name = "management_prev_notice_publication_date")
-    private Date gestionAvisPrecedentDateParution;
+    private String gestionAvisPrecedentDateParution;
 
     @Column(name = "management_subject_summary")
     private String gestionResumeObjet;
