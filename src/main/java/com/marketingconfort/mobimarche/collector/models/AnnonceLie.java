@@ -23,4 +23,8 @@ public class AnnonceLie {
     @ManyToOne
     @JoinColumn(name = "tender_id")
     private Tender tender;
+
+    public AnnonceLie(String annonce) {
+        this.annonce = annonce;
+    }
 }

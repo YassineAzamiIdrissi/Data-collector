@@ -22,4 +22,8 @@ public class CodeDepartement {
     @ManyToOne
     @JoinColumn(name = "tender_id")
     private Tender tender;
+
+    public CodeDepartement(String codeDepartement) {
+        this.codeDepartement = codeDepartement;
+    }
 }
