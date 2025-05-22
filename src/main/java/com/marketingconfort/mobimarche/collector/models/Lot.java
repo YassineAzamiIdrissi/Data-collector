@@ -22,7 +22,7 @@ public class Lot {
     private String lieuPrincipal;
 
     @OneToMany(mappedBy = "lot")
-    private List<Valeur> valeur;
+    private List<Valeur> valeurs;
 
     @ManyToOne
     @JoinColumn(name = "tender_id")
