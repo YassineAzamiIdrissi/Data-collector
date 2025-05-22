@@ -2,6 +2,8 @@ package com.marketingconfort.mobimarche.collector.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.marketingconfort.mobimarche.collector.dto.DescripteurDTO;
+import com.marketingconfort.mobimarche.collector.dto.LotDTO;
 import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
 import com.marketingconfort.mobimarche.collector.models.*;
 import org.springframework.stereotype.Component;
@@ -87,8 +89,9 @@ public class TenderMapper {
             if (indexation.hasNonNull("DESCRIPTEURS")) {
                 JsonNode descripteursNode = indexation.get("DESCRIPTEURS").get("DESCRIPTEUR");
                 if (descripteursNode != null && descripteursNode.isArray()) {
-                    Descripteur[] tableau = mapper.convertValue(descripteursNode, Descripteur[].class);
-                    t.setDescriptors(Arrays.asList(tableau));
+                    DescripteurDTO[] tableau = mapper.convertValue(descripteursNode, DescripteurDTO[].class);
+                    DescripteurMapper dm = new DescripteurMapper();
+                    t.setDescriptors(dm.toListEntity(Arrays.asList(tableau)));
                 }
             }
             if (indexation.hasNonNull("GENRE_V1")) t.setGestionGenre(indexation.get("GENRE_V1").asText());
@@ -197,8 +200,9 @@ public class TenderMapper {
             if (objet.hasNonNull("LOTS")) {
                 JsonNode lotNode = objet.get("LOTS").get("LOT");
                 if (lotNode != null && lotNode.isArray()) {
-                    Lot[] tableau = mapper2.convertValue(lotNode, Lot[].class);
-                    t.setLots(Arrays.asList(tableau));
+                    LotDTO[] tableau = mapper2.convertValue(lotNode, LotDTO[].class);
+                    LotMapper lm = new LotMapper();
+                    t.setLots(lm.toListEntity(Arrays.asList(tableau)));
                 }
             }
 
