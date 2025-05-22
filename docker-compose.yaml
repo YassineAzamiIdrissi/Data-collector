@@ -1,0 +1,12 @@
+services:
+  pg_db:
+    container_name: pg_database_cont
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: yassine
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: draft_database
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432

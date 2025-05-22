@@ -5,14 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marketingconfort.mobimarche.collector.dto.DescripteurDTO;
 import com.marketingconfort.mobimarche.collector.dto.LotDTO;
 import com.marketingconfort.mobimarche.collector.dto.TenderDTO;
-import com.marketingconfort.mobimarche.collector.models.*;
+import com.marketingconfort.mobimarche.collector.models.Tender;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.List;
 
 
 @Component
@@ -230,8 +229,11 @@ public class TenderMapper {
                 t.setDonneesCategorieAcheteur(techAchat.get("CATEGORIE_ACHETEUR").asText());
 
             JsonNode criteresAttribution = procedure.get("CRITERES_ATTRIBUTION");
-            if (criteresAttribution.hasNonNull("CRITERES_LIBRE"))
-                t.setDonneesCriteresAttribution(criteresAttribution.get("CRITERES_LIBRE").asText());
+            if (criteresAttribution != null && criteresAttribution.isObject()) {
+                if (criteresAttribution.hasNonNull("CRITERES_LIBRE"))
+                    t.setDonneesCriteresAttribution(criteresAttribution.get("CRITERES_LIBRE").asText());
+            }
+
 
             if (procedure.hasNonNull("ATTRIB_SANS_NEG_OUI"))
                 t.setDonneesAttribSansNegOui(procedure.get("ATTRIB_SANS_NEG_OUI").asText());

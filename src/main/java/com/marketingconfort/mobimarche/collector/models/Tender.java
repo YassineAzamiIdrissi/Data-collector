@@ -111,7 +111,8 @@ public class Tender {
     private String donneesTitreMarche;
 
 
-    @Column(name = "data_full_subject")
+    @Lob
+    @Column(name = "data_full_subject", columnDefinition = "LONGTEXT")
     private String donneesObjetComplet;
 
     @Column(name = "data_main_cpv")
@@ -148,7 +149,8 @@ public class Tender {
     @Column(name = "data_buyer_category")
     private String donneesCategorieAcheteur;
 
-    @Column(name = "data_award_criteria")
+    @Lob
+    @Column(name = "data_award_criteria", columnDefinition = "LONGTEXT")
     private String donneesCriteresAttribution;
 
     @Column(name = "data_offer_reception_date")
@@ -157,35 +159,44 @@ public class Tender {
     @Column(name = "data_electronic_participation_allowed")
     private String donneesParticipationElectroniqueAutorisee;
 
-    @Column(name = "data_selection_criteria")
+    @Lob
+    @Column(name = "data_selection_criteria", columnDefinition = "LONGTEXT")
     private String donneesCritereSelection;
 
     @Column(name = "data_economic_capacity")
     private String donneesCapaciteEco;
 
-    @Column(name = "data_technical_capacity")
+    @Lob
+    @Column(name = "data_technical_capacity", columnDefinition = "LONGTEXT")
     private String donneesCapaciteTech;
 
-    @Column(name = "data_site_visit_no")
+    @Lob
+    @Column(name = "data_site_visit_no", columnDefinition = "LONGTEXT")
     private String donneesVisiteNon;
 
-    @Column(name = "data_additional_information")
+    @Lob
+    @Column(name = "data_additional_information", columnDefinition = "LONGTEXT")
     private String donneesRenseignementsComplementaires;
 
     // gestion : : : : : : : : : ::: : : : : : : : :
-    @Column(name = "management_r2")
+    @Lob
+    @Column(name = "management_r2", columnDefinition = "LONGTEXT")
     private String gestionR2;
 
-    @Column(name = "management_r3")
+    @Lob
+    @Column(name = "management_r3", columnDefinition = "LONGTEXT")
     private String gestionR3;
 
-    @Column(name = "management_r3_profession")
+    @Lob
+    @Column(name = "management_r3_profession", columnDefinition = "LONGTEXT")
     private String gestionTetier_r3;
 
-    @Column(name = "management_r4")
+    @Lob
+    @Column(name = "management_r4", columnDefinition = "LONGTEXT")
     private String gestionR4;
 
-    @Column(name = "management_r4_profession")
+    @Lob
+    @Column(name = "management_r4_profession", columnDefinition = "LONGTEXT")
     private String gestionTetier_r4;
 
     @Column(name = "management_k1")
