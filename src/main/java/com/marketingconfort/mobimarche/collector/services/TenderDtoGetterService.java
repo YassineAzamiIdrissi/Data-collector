@@ -47,11 +47,11 @@ public class TenderDtoGetterService {
         return Collections.emptyList();
     }
 
-    public List<TenderDTO> getTendersByYear(String year, String limit) {
+    public List<TenderDTO> getTendersByYear(String year, String limit, String offset) {
         try {
             String conditionYear = "dateparution>='" + year + "-01-01'";
             String url = "https://boamp-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/boamp/records"
-                    + "?where=" + conditionYear + "&limit=" + limit;
+                    + "?where=" + conditionYear + "&limit=" + limit + "&offset=" + offset;
 
 
             System.out.println("URL utilisée : " + url);
