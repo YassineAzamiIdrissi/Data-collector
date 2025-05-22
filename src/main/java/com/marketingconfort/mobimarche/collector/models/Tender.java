@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
+@Table(name = "Tender")
 public class Tender {
 
     @Id

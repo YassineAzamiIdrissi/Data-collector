@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @Entity
+@Table(name = "Descripteur")
 public class Descripteur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

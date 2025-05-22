@@ -13,6 +13,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Builder
 @Data
 @Entity
+@Table(name = "CodeDepartement")
 public class CodeDepartement {
     @Id
     @GeneratedValue(strategy = IDENTITY)

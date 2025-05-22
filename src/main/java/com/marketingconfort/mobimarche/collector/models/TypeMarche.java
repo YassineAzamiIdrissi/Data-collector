@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @Entity
+@Table(name = "TypeMarche")
 public class TypeMarche {
     @Id
     @GeneratedValue
