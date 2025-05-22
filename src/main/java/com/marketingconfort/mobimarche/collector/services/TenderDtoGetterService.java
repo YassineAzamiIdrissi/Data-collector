@@ -6,6 +6,7 @@ import com.marketingconfort.mobimarche.collector.dto.TenderResponseDTO;
 import com.marketingconfort.mobimarche.collector.mapper.TenderMapper;
 import com.marketingconfort.mobimarche.collector.models.*;
 import com.marketingconfort.mobimarche.collector.repositories.*;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
