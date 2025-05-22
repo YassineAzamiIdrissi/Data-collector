@@ -1,20 +1,17 @@
 package com.marketingconfort.mobimarche.collector.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.marketingconfort.mobimarche.collector.models.Valeur;
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
-import java.util.List;
 
 
 @Data
 public class LotDTO {
-    @JsonIgnore
-    private Integer id;
+    @JsonProperty("DESCRIPTION")
     private String description;
+    @JsonProperty("LIEU_PRINCIPAL")
     private String lieuPrincipal;
-    private List<ValeurDTO> valeursDTO;
+    @JsonProperty("VALEUR")
+    private ValeurDTO valeur;
 
 }
