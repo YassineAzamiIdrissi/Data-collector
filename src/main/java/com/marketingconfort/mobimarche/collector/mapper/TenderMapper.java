@@ -211,14 +211,14 @@ public class TenderMapper {
                 if (techAchat.hasNonNull("ACCORD_CADRE")) {
                     t.setDonneesTechAchat(techAchat.get("ACCORD_CADRE").asText());
                 }
+
+                if (techAchat.hasNonNull("VARIANTES_NON"))
+                    t.setDonneesVariantesNon(techAchat.get("VARIANTES_NON").asText());
+
+                if (techAchat.hasNonNull("CATEGORIE_ACHETEUR"))
+                    t.setDonneesCategorieAcheteur(techAchat.get("CATEGORIE_ACHETEUR").asText());
             }
 
-
-            if (techAchat.hasNonNull("VARIANTES_NON"))
-                t.setDonneesVariantesNon(techAchat.get("VARIANTES_NON").asText());
-
-            if (techAchat.hasNonNull("CATEGORIE_ACHETEUR"))
-                t.setDonneesCategorieAcheteur(techAchat.get("CATEGORIE_ACHETEUR").asText());
 
             JsonNode criteresAttribution = procedure.get("CRITERES_ATTRIBUTION");
             if (criteresAttribution != null && criteresAttribution.isObject()) {
