@@ -21,8 +21,8 @@ public class Lot {
     private String description;
     private String lieuPrincipal;
 
-    @OneToMany(mappedBy = "lot")
-    private List<Valeur> valeurs;
+    @OneToOne(mappedBy = "lot")
+    private Valeur valeur;
 
     @ManyToOne
     @JoinColumn(name = "tender_id")

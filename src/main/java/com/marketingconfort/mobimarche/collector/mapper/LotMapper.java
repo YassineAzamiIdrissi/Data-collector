@@ -16,9 +16,7 @@ public class LotMapper {
         Lot lot = new Lot();
         lot.setDescription(lotDTO.getDescription());
         lot.setLieuPrincipal(lotDTO.getLieuPrincipal());
-        ValeurMapper vm = new ValeurMapper();
-        List<Valeur> val = vm.toListEntity(lotDTO.getValeursDTO());
-        lot.setValeurs( val);
+        //lot.setValeur(lotDTO.getValeur());
         return lot ;
     }
 
@@ -29,8 +27,8 @@ public class LotMapper {
             lot.setDescription(lotDTO.getDescription());
             lot.setLieuPrincipal(lotDTO.getLieuPrincipal());
             ValeurMapper vm = new ValeurMapper();
-            List<Valeur> val = vm.toListEntity(lotDTO.getValeursDTO());
-            lot.setValeurs( val);
+           // List<Valeur> val = vm.toListEntity(lotDTO.getValeursDTO());
+           // lot.setValeurs( val);
             lots.add(lot);
         }
         return lots ;
