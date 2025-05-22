@@ -245,5 +245,4 @@ public class Tender {
     @Column(name = "management_reminder")
     private String gestionRappel;
 
-
 }

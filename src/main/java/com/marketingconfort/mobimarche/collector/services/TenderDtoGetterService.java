@@ -48,11 +48,11 @@ public class TenderDtoGetterService {
         return Collections.emptyList();
     }
 
-    public List<TenderDTO> getTendersByYear(String year, String limit) {
+    public List<TenderDTO> getTendersByYear(String year, String limit, String offset) {
         try {
             String conditionYear = "dateparution>='" + year + "-01-01'";
             String url = "https://boamp-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/boamp/records"
-                    + "?where=" + conditionYear + "&limit=" + limit;
+                    + "?where=" + conditionYear + "&limit=" + limit + "&offset=" + offset;
 
 
             System.out.println("URL utilisée : " + url);
@@ -61,7 +61,6 @@ public class TenderDtoGetterService {
 
             if (response != null && response.getResults() != null) {
                 List<TenderDTO> results = response.getResults();
-                List<Tender> tendersEnts = new ArrayList<>();
                 for (TenderDTO dto : results) {
                     Tender concernedTender = tenderMapper.toEntity(dto);
                     List<AnnonceLie> annonceLies = new ArrayList<>();
@@ -77,24 +76,31 @@ public class TenderDtoGetterService {
                             annonceLies.add(annonceLieEntity);
                         }
                     }
-                    for (String typeMarche : dto.getTypeMarches()) {
-                        TypeMarche typeMarcheEntity = TypeMarche.builder().
-                                typeMarche(typeMarche).build();
-                        typeMarcheEntity.setTender(concernedTender);
-                        typesMarches.add(typeMarcheEntity);
+                    if (dto.getTypeMarches() != null) {
+                        for (String typeMarche : dto.getTypeMarches()) {
+                            TypeMarche typeMarcheEntity = TypeMarche.builder().
+                                    typeMarche(typeMarche).build();
+                            typeMarcheEntity.setTender(concernedTender);
+                            typesMarches.add(typeMarcheEntity);
+                        }
                     }
-                    for (String typeAvis : dto.getTypeAviss()) {
-                        TypeAvis typeAvisEntity = TypeAvis.builder().
-                                typeAvis(typeAvis).build();
-                        typeAvisEntity.setTender(concernedTender);
-                        typesAvis.add(typeAvisEntity);
+                    if (dto.getTypeAviss() != null) {
+                        for (String typeAvis : dto.getTypeAviss()) {
+                            TypeAvis typeAvisEntity = TypeAvis.builder().
+                                    typeAvis(typeAvis).build();
+                            typeAvisEntity.setTender(concernedTender);
+                            typesAvis.add(typeAvisEntity);
+                        }
                     }
-                    for (String codeDep : dto.getCodeDepartements()) {
-                        CodeDepartement codeDepEntity = CodeDepartement.builder().codeDepartement(
-                                codeDep
-                        ).build();
-                        codeDepEntity.setTender(concernedTender);
-                        codesDep.add(codeDepEntity);
+                    if (dto.getCodeDepartements() != null) {
+                        for (String codeDep : dto.getCodeDepartements()) {
+                            CodeDepartement codeDepEntity = CodeDepartement.builder().codeDepartement(
+                                    codeDep
+                            ).build();
+                            codeDepEntity.setTender(concernedTender);
+                            codesDep.add(codeDepEntity);
+                        }
+
                     }
                     tenderRepo.save(concernedTender);
                     annonceLieRepo.saveAll(annonceLies);

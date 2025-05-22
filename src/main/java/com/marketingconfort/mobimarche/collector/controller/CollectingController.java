@@ -17,9 +17,10 @@ public class CollectingController {
     @PostMapping("")
     ResponseEntity<?> saveTenders(
             @RequestParam(name = "year") String year,
-            @RequestParam(name = "limit") String limit
+            @RequestParam(name = "limit") String limit,
+            @RequestParam(name = "offset") String offset
     ) {
-        service.getTendersByYear(year, limit);
+        service.getTendersByYear(year, limit, offset);
         return ResponseEntity.ok().
                 build();
     }
