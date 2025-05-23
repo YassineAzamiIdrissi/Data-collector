@@ -47,8 +47,9 @@ public class TenderMapper {
         t.setTypeAviss(typeAviss);
         //-----------------------------
          AnnonceLieMapper annonceMapper = new AnnonceLieMapper();
+         if(tDTO.getAnnonceLies()!=null){
         List<AnnonceLie> annonces = annonceMapper.toListEntity(tDTO.getAnnonceLies());
-        t.setAnnonceLies(annonces);
+        t.setAnnonceLies(annonces);}
 
         //-----------------------------
 
