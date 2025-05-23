@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -20,8 +22,8 @@ public class Lot {
     private String description;
     private String lieuPrincipal;
 
-    @OneToOne(mappedBy = "lot")
-    private Valeur valeur;
+    @OneToMany(mappedBy = "lot")
+    private List<Valeur> valeurs;
 
     @ManyToOne
     @JoinColumn(name = "tender_id")

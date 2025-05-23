@@ -29,7 +29,7 @@ public class LotMapper {
             ValeurMapper vm = new ValeurMapper();
             if (lotDTO.getValeur() != null) {
                 Valeur val = vm.toEntity(lotDTO.getValeur());
-                lot.setValeur(val);
+                lot.setValeurs(List.of(val));
             }
             lots.add(lot);
         }

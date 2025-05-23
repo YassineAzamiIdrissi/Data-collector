@@ -27,6 +27,7 @@ public class TenderDtoGetterService {
     private final TypeAvisRepository typeAvisRepo;
     private final AnnonceLieRepository annonceLieRepo;
     private final ValeurRepository valeurRepo;
+    private final LotRepository lotRepo;
 
     public List<TenderDTO> getTenderDTOById(String id) {
         try {
@@ -63,6 +64,7 @@ public class TenderDtoGetterService {
                 List<TenderDTO> results = response.getResults();
                 for (TenderDTO dto : results) {
                     Tender concernedTender = tenderMapper.toEntity(dto);
+                    tenderRepo.save(concernedTender);
                     List<AnnonceLie> annonceLies = new ArrayList<>();
                     List<TypeMarche> typesMarches = new ArrayList<>();
                     List<TypeAvis> typesAvis = new ArrayList<>();
@@ -103,16 +105,19 @@ public class TenderDtoGetterService {
 
                     }
                     if (concernedTender.getLots() != null) {
-                        for (Lot lot : concernedTender.getLots()) {
-                            Valeur concernedValeur = lot.getValeur();
-                            if (concernedValeur != null) {
-                                concernedValeur.setLot(lot);
-                                valeurRepo.save(concernedValeur);
+                        for (Lot conLot : concernedTender.getLots()) {
+                            conLot.setTender(concernedTender);
+                            lotRepo.save(conLot);
+                            if (conLot.getValeurs() != null) {
+                                for (Valeur valeur : conLot.getValeurs()) {
+                                    valeur.setLot(conLot);
+                                    valeurRepo.save(valeur);
+                                }
                             }
 
                         }
                     }
-                    tenderRepo.save(concernedTender);
+                    // tenderRepo.save(concernedTender);
                     annonceLieRepo.saveAll(annonceLies);
                     typeMarcheRepo.saveAll(typesMarches);
                     typeAvisRepo.saveAll(typesAvis);
