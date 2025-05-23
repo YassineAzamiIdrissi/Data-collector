@@ -29,6 +29,7 @@ public class TenderDtoGetterService {
     private final AnnonceLieRepository annonceLieRepo;
     private final ValeurRepository valeurRepo;
     private final LotRepository lotRepo;
+    private final DescripteurRepository descripteurRepo;
 
     public List<TenderDTO> getTenderDTOById(String id) {
         try {
@@ -104,6 +105,12 @@ public class TenderDtoGetterService {
                             codesDep.add(codeDepEntity);
                         }
 
+                    }
+                    if (concernedTender.getDescriptors() != null) {
+                        for (Descripteur desc : concernedTender.getDescriptors()) {
+                            desc.setTender(concernedTender);
+                            descripteurRepo.save(desc);
+                        }
                     }
                     if (concernedTender.getLots() != null) {
                         for (Lot conLot : concernedTender.getLots()) {
