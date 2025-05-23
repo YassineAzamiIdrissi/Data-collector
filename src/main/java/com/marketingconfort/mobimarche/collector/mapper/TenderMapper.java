@@ -35,22 +35,29 @@ public class TenderMapper {
         t.setUrl_avis(tDTO.getUrl_avis());
         //-----------------------------
         CodeDepartementMapper cdMapper = new CodeDepartementMapper();
-        List<CodeDepartement> codeDepartements = cdMapper.toListEntity(tDTO.getCodeDepartements());
-        t.setCodesDepartements(codeDepartements);
+        if (tDTO.getCodeDepartements() != null) {
+            List<CodeDepartement> codeDepartements = cdMapper.toListEntity(tDTO.getCodeDepartements());
+            t.setCodesDepartements(codeDepartements);
+        }
         //----------------------------
         TypeMarcheMapper tmMapper = new TypeMarcheMapper();
-        List<TypeMarche> typeMarches = tmMapper.toListEntity(tDTO.getTypeMarches());
-        t.setTypeMarches(typeMarches);
+        if (tDTO.getTypeMarches() != null) {
+            List<TypeMarche> typeMarches = tmMapper.toListEntity(tDTO.getTypeMarches());
+            t.setTypeMarches(typeMarches);
+        }
+
         //----------------------------
         TypeAvisMapper taMapper = new TypeAvisMapper();
-        List<TypeAvis> typeAviss = taMapper.toListEntity(tDTO.getTypeAviss());
-        t.setTypeAviss(typeAviss);
+        if (tDTO.getTypeAviss() != null) {
+            List<TypeAvis> typeAviss = taMapper.toListEntity(tDTO.getTypeAviss());
+            t.setTypeAviss(typeAviss);
+        }
+
         //-----------------------------
          AnnonceLieMapper annonceMapper = new AnnonceLieMapper();
          if(tDTO.getAnnonceLies()!=null){
         List<AnnonceLie> annonces = annonceMapper.toListEntity(tDTO.getAnnonceLies());
         t.setAnnonceLies(annonces);}
-
         //-----------------------------
 
 
@@ -94,8 +101,7 @@ public class TenderMapper {
                 if (descripteursNode != null && descripteursNode.isArray()) {
                     DescripteurDTO[] tableau = mapper.convertValue(descripteursNode, DescripteurDTO[].class);
                     t.setDescriptors(dm.toListEntity(Arrays.asList(tableau)));
-                }
-                else if (descripteursNode.isObject()) {
+                } else if (descripteursNode.isObject()) {
                     DescripteurDTO descripteur = mapper.convertValue(descripteursNode, DescripteurDTO.class);
                     List<DescripteurDTO> descripteurList = new ArrayList<>();
                     descripteurList.add(descripteur);
@@ -224,19 +230,24 @@ public class TenderMapper {
         JsonNode procedure = donnees.get("PROCEDURE");
         if (procedure != null && procedure.isObject()) {
             JsonNode typeProcedure = procedure.get("TYPE_PROCEDURE");
-            if (typeProcedure.hasNonNull("OUVERT"))
-                t.setDonneesType_Procedure(typeProcedure.get("OUVERT").asText());
-
-            JsonNode techAchat = procedure.get("TECH_ACHAT");
-            if (techAchat.hasNonNull("ACCORD_CADRE")) {
-                t.setDonneesTechAchat(techAchat.get("ACCORD_CADRE").asText());
+            if (typeProcedure != null && typeProcedure.isObject()) {
+                if (typeProcedure.hasNonNull("OUVERT"))
+                    t.setDonneesType_Procedure(typeProcedure.get("OUVERT").asText());
             }
 
-            if (techAchat.hasNonNull("VARIANTES_NON"))
-                t.setDonneesVariantesNon(techAchat.get("VARIANTES_NON").asText());
 
-            if (techAchat.hasNonNull("CATEGORIE_ACHETEUR"))
-                t.setDonneesCategorieAcheteur(techAchat.get("CATEGORIE_ACHETEUR").asText());
+            JsonNode techAchat = procedure.get("TECH_ACHAT");
+            if (techAchat != null && techAchat.isObject()) {
+                if (techAchat.hasNonNull("ACCORD_CADRE")) {
+                    t.setDonneesTechAchat(techAchat.get("ACCORD_CADRE").asText());
+                }
+                if (techAchat.hasNonNull("VARIANTES_NON"))
+                    t.setDonneesVariantesNon(techAchat.get("VARIANTES_NON").asText());
+
+                if (techAchat.hasNonNull("CATEGORIE_ACHETEUR"))
+                    t.setDonneesCategorieAcheteur(techAchat.get("CATEGORIE_ACHETEUR").asText());
+            }
+
 
             JsonNode criteresAttribution = procedure.get("CRITERES_ATTRIBUTION");
             if (criteresAttribution != null && criteresAttribution.isObject()) {
