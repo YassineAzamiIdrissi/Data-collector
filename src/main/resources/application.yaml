@@ -1,7 +1,3 @@
 spring:
   profiles:
-<<<<<<< HEAD
     active: ilyas
-=======
-    active: test
->>>>>>> 8bb1f949955be4633cd0804e88cca8bbe3014acc
