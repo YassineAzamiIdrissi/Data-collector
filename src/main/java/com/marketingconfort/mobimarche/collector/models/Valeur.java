@@ -18,7 +18,7 @@ public class Valeur {
     private Integer id;
     private String devise;
     private String text;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "lot_id")
     private Lot lot;
 }
