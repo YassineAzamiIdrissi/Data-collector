@@ -61,7 +61,7 @@ public class TenderDTO {
     @JsonProperty("type_avis")
     private List<String> typeAviss;
 
-    @JsonProperty("annoncelie")
+    @JsonProperty("annonce_lie")
     private List<String> annonceLies;
 
 
