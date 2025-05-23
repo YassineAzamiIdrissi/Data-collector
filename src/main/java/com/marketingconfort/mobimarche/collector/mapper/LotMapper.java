@@ -17,20 +17,22 @@ public class LotMapper {
         lot.setDescription(lotDTO.getDescription());
         lot.setLieuPrincipal(lotDTO.getLieuPrincipal());
         //lot.setValeur(lotDTO.getValeur());
-        return lot ;
+        return lot;
     }
 
     public List<Lot> toListEntity(List<LotDTO> lotsDTO) {
-        List<Lot> lots = new ArrayList<Lot>();
-        for (LotDTO lotDTO : lotsDTO){
+        List<Lot> lots = new ArrayList<>();
+        for (LotDTO lotDTO : lotsDTO) {
             Lot lot = new Lot();
             lot.setDescription(lotDTO.getDescription());
             lot.setLieuPrincipal(lotDTO.getLieuPrincipal());
             ValeurMapper vm = new ValeurMapper();
-           // List<Valeur> val = vm.toListEntity(lotDTO.getValeursDTO());
-           // lot.setValeurs( val);
+            if (lotDTO.getValeur() != null) {
+                Valeur val = vm.toEntity(lotDTO.getValeur());
+                lot.setValeur(val);
+            }
             lots.add(lot);
         }
-        return lots ;
+        return lots;
     }
 }
