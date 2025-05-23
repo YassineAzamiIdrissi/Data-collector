@@ -26,6 +26,7 @@ public class TenderDtoGetterService {
     private final TypeMarcheRepository typeMarcheRepo;
     private final TypeAvisRepository typeAvisRepo;
     private final AnnonceLieRepository annonceLieRepo;
+    private final ValeurRepository valeurRepo;
 
     public List<TenderDTO> getTenderDTOById(String id) {
         try {
@@ -100,6 +101,13 @@ public class TenderDtoGetterService {
                             codesDep.add(codeDepEntity);
                         }
 
+                    }
+                    if (concernedTender.getLots() != null) {
+                        for (Lot lot : concernedTender.getLots()) {
+                            Valeur concernedValeur = lot.getValeur();
+                            concernedValeur.setLot(lot);
+                            valeurRepo.save(concernedValeur);
+                        }
                     }
                     tenderRepo.save(concernedTender);
                     annonceLieRepo.saveAll(annonceLies);
