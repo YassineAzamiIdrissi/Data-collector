@@ -105,8 +105,11 @@ public class TenderDtoGetterService {
                     if (concernedTender.getLots() != null) {
                         for (Lot lot : concernedTender.getLots()) {
                             Valeur concernedValeur = lot.getValeur();
-                            concernedValeur.setLot(lot);
-                            valeurRepo.save(concernedValeur);
+                            if (concernedValeur != null) {
+                                concernedValeur.setLot(lot);
+                                valeurRepo.save(concernedValeur);
+                            }
+
                         }
                     }
                     tenderRepo.save(concernedTender);
