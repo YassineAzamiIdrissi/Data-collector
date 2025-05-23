@@ -115,7 +115,6 @@ public class TenderDtoGetterService {
                                     valeurRepo.save(valeur);
                                 }
                             }
-
                         }
                     }
                     // tenderRepo.save(concernedTender);
